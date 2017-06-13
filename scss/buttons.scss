@@ -1,0 +1,85 @@
+.button {
+  @include is-control;
+
+  padding: 0.5rem 1.5rem;
+  margin: 0.3rem;
+  background: colors(light);
+  border-width: 0;
+  box-shadow: 1px 1px 1px $border-color;
+  color: $body-font-color;
+  touch-action: none;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:focus, &:hover {
+    color: colors(gray, dark);
+    background-color: colors(primary, light);
+    text-decoration: none;
+  }
+
+  &:active, &.active {
+    background: colors(primary);
+    color: colors(light);
+  }
+
+  &:disabled, &.disabled {
+    cursor: default;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &.button-primary {
+    background: colors(primary);
+    color: colors(light);
+
+    &:focus, &:hover {
+      background: colors(primary);
+      color: colors(light);
+    }
+
+    &:active, &.active {
+      background: colors(primary);
+      color: colors(light);
+    }
+
+    &.loading {
+      &::after {
+        border-bottom-color: colors(light);
+        border-left-color: colors(light);
+      }
+    }
+  }
+
+  &.button-link {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: $link-color;
+
+    &:focus, &:hover, &:active, &.active {
+      color: $link-color;
+    }
+
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.button-null {
+  appearance: none;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: inherit;
+  font-weight: inherit;
+  padding: 0;
+
+  &:focus {
+    text-decoration: underline;
+  }
+}

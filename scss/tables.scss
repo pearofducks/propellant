@@ -1,0 +1,41 @@
+// Tables
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+  width: 100%;
+
+  td {
+    border-bottom: $border-width solid $border-color;
+    padding: 1.4rem 1rem;
+  }
+
+  th {
+    border-bottom: 0.2rem solid colors(gray, dark);
+    padding: 1.4rem 1rem;
+  }
+
+  &.table-striped {
+    tbody {
+      tr:nth-of-type(odd) {
+        background: colors(background, light);
+      }
+    }
+  }
+
+  &.table-hover tbody tr {
+    &:hover {
+      background: colors(background, dark);
+    }
+  }
+
+  &, &.table-striped {
+    tbody {
+      tr {
+        &.active {
+          background: colors(background, dark);
+        }
+      }
+    }
+  }
+}

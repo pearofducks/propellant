@@ -1,0 +1,214 @@
+.popup-backdrop, .modal-backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+// POPUP
+
+.popup-backdrop {
+  background-color: rgba(colors(gray, dark), 0.75);
+  z-index: 200;
+}
+
+.popup-container {
+  background-color: colors(background, light);
+}
+
+.fade-in-enter-active, .fade-in-leave-active, .fade-in-enter-active, .fade-in-leave-active {
+  transition: opacity 0.4s ease-in-out;
+
+  .popup-container {
+    transition: transform 0.4s ease-in-out;
+  }
+}
+
+.fade-in-enter, .fade-in-leave-to {
+  opacity: 0;
+
+  .popup-container {
+    transform: scale(0);
+  }
+}
+
+// COLLAPSE
+
+.collapse-content {
+  overflow: hidden;
+  will-change: height;
+}
+
+.collapse .clickable {
+  cursor: pointer;
+}
+
+.collapse-showmore .button-link {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.2rem;
+}
+
+// MODAL
+
+.modal-showing {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.modal-backdrop {
+  background-color: rgba(colors(gray, dark), 0.75);
+  z-index: 100;
+
+  @include mobile {
+    width: 100vw;
+    min-height: 100%;
+    background-color: colors(background, light);
+  }
+}
+
+.from-bottom-enter-active, .from-bottom-leave-active, .from-right-enter-active, .from-right-leave-active {
+  transition: opacity 0.5s ease-in-out;
+
+  @include mobile {
+    transition: transform 0.5s ease-in-out;
+  }
+}
+
+.from-bottom-enter, .from-bottom-leave-to {
+  opacity: 0;
+
+  @include mobile {
+    opacity: 1;
+    transform: translateY(100vh);
+  }
+}
+
+// TOAST
+
+.toast-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+}
+
+.toast-container {
+  flex: 1;
+  margin: 2.4rem;
+  padding: 1.2rem 2.4rem;
+  background-color: colors(primary);
+  color: colors(light);
+  transition: 0.3s;
+  border: 2px solid colors(primary);
+
+  &.primary, &.success, &.warning, &.danger {
+    color: colors(light);
+  }
+  @each $name in $ui-colors {
+    &.#{$name} {
+      background-color: colors($name);
+      border-color: colors($name);
+    }
+  }
+
+  &.light {
+    background-color: colors(light);
+
+    @each $name in $ui-colors {
+      &.#{$name} { color: colors($name); }
+    }
+  }
+
+  @include mobile {
+    border-style: solid none none none;
+    margin: 0;
+  }
+}
+
+.toast-message * {
+  margin: 0;
+  color: inherit;
+}
+
+.toast-bottom-enter-active, .toast-bottom-leave-active, .toast-right-enter-active, .toast-right-leave-active {
+  transition: transform 0.4s ease-in-out;
+}
+
+.toast-bottom-enter, .toast-bottom-leave-to {
+  transform: translateY(100%);
+}
+
+// SECTIONBOX
+
+.sectionbar {
+  display: flex;
+  align-items: center;
+  background-color: colors(light);
+  border: 0.1rem solid $border-color;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin: 1.2rem 0;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  & > * {
+    margin: 1.2rem 0;
+  }
+
+  .sectionbar-content {
+    margin-right: 1.5rem;
+  }
+
+  .sectionbar-icon, .sectionbar-color {
+    align-self: stretch;
+  }
+
+  .sectionbar-callout {
+    margin-left: auto;
+    margin-right: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .sectionbar-icon {
+    min-width: 4.8rem;
+    min-height: 4.8rem;
+    background: no-repeat;
+    background-size: contain;
+    margin-right: 1.5rem;
+  }
+
+  .sectionbar-color {
+    margin: 0;
+    margin-right: 1.5rem;
+    border-left: 0.3rem solid transparent;
+  }
+
+  @each $name in $ui-colors {
+    &.#{$name}-color .sectionbar-color {
+      border-color: colors($name);
+    }
+  }
+}
+
+#sectionbar-hotdog, #sectionbar-hamburger, #sectionbar-chevron, #sectionbar-plus {
+  stroke: colors(gray, dark);
+}
+
+.sectionbar:hover {
+  #sectionbar-hotdog, #sectionbar-hamburger, #sectionbar-chevron, #sectionbar-plus {
+    stroke: colors(primary);
+  }
+}

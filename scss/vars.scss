@@ -1,0 +1,57 @@
+@function colors($palette, $tone: 'base') {
+    @return map-get(map-get($palettes, $palette), $tone);
+}
+
+// Sizes
+
+$html-font-size: 62.5%;
+$html-line-height: 1.42857;
+$font-size: 1.4rem;
+
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+$layout-padding: 1.4rem;
+$input-min-width: 18rem;
+$border-radius: 0.3rem;
+$border-width: 0.1rem;
+
+// Colors
+
+$palettes: (
+  primary: (
+    base: #228ba8,
+    light: #d3ebf2
+  ),
+  gray: (
+    base: #a7b3c2,
+    dark: #3d5065,
+    light: #dadfe4
+  ),
+  background: (
+    light: #eef1f5,
+    dark: #627b99, // gray-dark
+    base: #dadfe4 // gray-light
+  ),
+  success: (
+    base: #65a282
+  ),
+  warning: (
+    base: #bbb04c
+  ),
+  danger: (
+    base: #a26575
+  ),
+  light: (
+    base: #fbfbfc
+  )
+);
+
+$link-color: colors(primary);
+$border-color: colors(gray, light);
+$border-color-dark: colors(gray, dark);
+
+$code-color: colors(danger);
+
+$body-font-color: colors(gray, dark);
+
+$ui-colors: primary success warning danger;

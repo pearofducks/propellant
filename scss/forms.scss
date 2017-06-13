@@ -1,0 +1,117 @@
+.input-group {
+  &:not(:last-child) {
+    margin-bottom: $layout-padding;
+  }
+}
+
+.input-label, .input-hint {
+  display: block;
+  padding: 0.6rem 0;
+  user-select: none;
+  font-weight: 500;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-top: 0.6rem;
+}
+
+.input-validation-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  margin: 1.2rem;
+
+  @each $name in $ui-colors {
+    .#{$name} & .icon {
+      stroke: colors($name);
+    }
+  }
+}
+
+.input-hint {
+  color: colors(gray);
+
+  @each $name in $ui-colors {
+    .#{$name} & {
+      color: colors($name);
+    }
+  }
+}
+
+.input, .select, .textarea {
+  @include is-control;
+
+  background-color: colors(light);
+  min-width: $input-min-width;
+  color: $body-font-color;
+
+  &:focus {
+    border-color: colors(primary);
+
+    @include control-shadow(colors(primary));
+  }
+
+  @each $name in $ui-colors {
+    .#{$name} & {
+      border-color: colors($name);
+
+      &:focus {
+        @include control-shadow(colors($name));
+      }
+    }
+  }
+
+  &:disabled, &.disabled {
+    background-color: colors(background);
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+.input, .textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+.input-wrapper {
+  &.has-validation-icon .input {
+    padding-right: 4rem;
+  }
+}
+
+.textarea {
+  display: block;
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.select-wrapper {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+
+  select {
+    padding-right: 2.4rem;
+  }
+
+  &:after {
+    @include arrow($border-color-dark);
+
+    z-index: 4;
+    right: 1.2rem;
+    top: 1.6rem;
+    margin-top: -0.25rem;
+  }
+}
+
+.select {
+  cursor: pointer;
+  border-width: 0;
+  box-shadow: 1px 1px 1px $border-color;
+
+  &::-ms-expand {
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+// Codes
+pre code {
+  line-height: 1.5;
+}
+
+code {
+  background: colors(light);
+  color: $code-color;
+  border-radius: $border-radius;
+  display: inline-block;
+  line-height: 1;
+  padding: 0.4rem 0.8rem;
+  vertical-align: baseline;
+}
+
+.has-code {
+  border-radius: $border-radius;
+  color: $body-font-color;
+  line-height: 2rem;
+  position: relative;
+
+  &::before {
+    content: attr(data-lang);
+    color: colors(gray);
+    font-size: $font-size - $font-size * 0.1;
+    position: absolute;
+    right: 1rem;
+    top: 0.2rem;
+  }
+
+  code {
+    color: inherit;
+    display: block;
+    line-height: inherit;
+    overflow-x: auto;
+    padding: 2rem;
+    width: 100%;
+  }
+}

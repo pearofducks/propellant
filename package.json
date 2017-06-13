@@ -1,0 +1,74 @@
+{
+  "name": "propellant",
+  "description": "well-crafted Vue.js components",
+  "version": "0.7.0",
+  "author": "Dave Honneffer <pearofducks@gmail.com>",
+  "private": false,
+  "main": "lib/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/propellant/components.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "propellant",
+    "propellant-vue",
+    "components"
+  ],
+  "standard": {
+    "env": {
+      "mocha": true
+    }
+  },
+  "babel": {
+    "presets": [
+      ["env", { "modules": false }]
+    ]
+  },
+  "postcss": {
+    "sourceMap": true,
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "scripts": {
+    "build:vue": "vue build index.js --prod --dist lib --lib propellant",
+    "build:css": "vue build scss/main.js --prod --dist css --lib propellant",
+    "build:demo": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "test": "cross-env NODE_ENV=test mocha-webpack --opts .mocha-webpack.opts || true",
+    "mocha": "cross-env NODE_ENV=test mocha-webpack --opts .mocha-webpack.opts",
+    "test:watch": "cross-env NODE_ENV=test mocha-webpack --watch --opts .mocha-webpack.opts",
+    "lint": "standard --verbose",
+    "lint:fix": "standard --fix",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --content-base ./demo --open --hot"
+  },
+  "dependencies": {
+    "vue": "^2.2.1"
+  },
+  "devDependencies": {
+    "avoriaz": "^1.13.1",
+    "babel-core": "^6.0.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.0",
+    "cross-env": "^5.0.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "css-loader": "^0.28.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.0",
+    "jsdom": "11.0.0",
+    "jsdom-global": "3.0.2",
+    "mocha": "^3.2.0",
+    "mocha-webpack": "^1.0.0-beta.1",
+    "should": "^11.2.1",
+    "sinon": "^2.2.0",
+    "standard": "^10.0.2",
+    "vue-cli": "^2.8.2",
+    "vue-loader": "^12.0.0",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^2.2.0",
+    "webpack-node-externals": "^1.6.0",
+    "webpack-dev-server": "^2.4.5"
+  }
+}

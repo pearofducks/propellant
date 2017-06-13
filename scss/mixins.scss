@@ -1,0 +1,46 @@
+@mixin is-control {
+  appearance: none;
+  transition: all 0.2s ease;
+  align-items: center;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: $font-size;
+  justify-content: flex-start;
+  line-height: 2.4rem;
+  padding: 0.8rem;
+  position: relative;
+  vertical-align: top;
+
+  &:focus, &:active, &.active {
+    outline: none;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+@mixin control-shadow($color) {
+  box-shadow: 0 0 0 0.2rem fade-out($color, 0.8);
+}
+
+@mixin arrow($color) {
+  border: 0.2rem solid $color;
+  border-right: 0;
+  border-top: 0;
+  content: " ";
+  display: block;
+  height: 1rem;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(-45deg);
+  width: 1rem;
+}
+
+@mixin mobile {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
