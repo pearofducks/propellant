@@ -1,5 +1,5 @@
 {
-  "name": "propellant-vue",
+  "name": "propellant-components",
   "description": "well-crafted Vue.js components",
   "version": "0.7.0",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
@@ -14,7 +14,7 @@
     "vue",
     "vuejs",
     "propellant",
-    "propellant-vue",
+    "propellant-components",
     "components"
   ],
   "standard": {
