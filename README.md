@@ -6,9 +6,7 @@
 
 `npm install propellant-components`
 
-##### use
-
-load all components:
+##### use everything
 
 ```javascript
 import propellant from 'propellant-components'
@@ -16,7 +14,7 @@ Vue.use(propellant)
 import '~propellant-components/lib/main.css'
 ```
 
-or just certain ones:
+##### or just certain components
 
 ```
 import { pToast } from 'propellant-components'
