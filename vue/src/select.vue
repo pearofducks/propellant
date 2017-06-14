@@ -1,5 +1,5 @@
 <template>
-  <div class="input-group">
+  <div class="input-group has-select">
     <label :for="id" class="input-label" :class="{ 'no-label': noLabel }">{{ label }}</label>
     <span class="select-wrapper" :class="{ 'multiple': multiple }">
       <select :id="id" :disabled="disabled" :multiple="multiple" class="select" v-model="innerModel" @change="onChange">

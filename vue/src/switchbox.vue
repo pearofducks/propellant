@@ -1,5 +1,5 @@
 <template>
-  <div class="input-group">
+  <div class="input-group has-switchbox">
     <label :class="{ 'focus': focused, 'disabled': disabled }" class="switch">
       <input :disabled="disabled" @focus="focused = true" @focusout="focused = false" type="checkbox" v-model="innerModel" @change="onChange">
         {{ leftLabel }}

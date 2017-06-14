@@ -1,5 +1,5 @@
 <template>
-  <div class="input-group">
+  <div class="input-group has-textarea">
     <label :for="id" class="input-label">{{ label }}</label>
     <textarea :id="id" :disabled="disabled" class="textarea" :placeholder="placeholder"v-model="innerModel" @change="onChange"> </textarea>
   </div>

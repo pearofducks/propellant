@@ -1,5 +1,5 @@
 <template>
-  <div class="input-group">
+  <div class="input-group has-input">
     <label :for="id" class="input-label" :class="validationClass">{{ label }}</label>
     <div class="input-wrapper" :class="{ 'has-validation-icon': validationIcon !== '', 'has-hint': validationMsg }">
       <input :id="id" :disabled="disabled" class="input" v-model="innerModel" @change="validateAndChange" type="text" :placeholder="placeholder" />
