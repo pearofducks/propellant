@@ -13,6 +13,8 @@
     <StyleGuide/>
     <main>
       <section class="labelled" data-type="inputs">
+        <p-textarea :model.sync="inputModel" placeholder="a textarea" label="label for textarea" />
+        <p-textarea disabled :model.sync="inputModel" placeholder="a textarea" label="label for disabled textarea" />
         <p-input :model.sync="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
         <p-input disabled :model.sync="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
         <pre><code>model (sync'd on-change, not on-keyup) = {{ JSON.stringify(inputModel)}}</code></pre>
@@ -31,6 +33,11 @@
           <option>Three</option>
         </p-select>
         <pre><code>model = {{ JSON.stringify(selectModel)}}</code></pre>
+        <p-select multiple label="Please select multiple" :model.sync="multiselectModel">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </p-select>
       </section>
       <section class="labelled" data-type="toggles">
         <p-switchbox :model.sync="toggleModel" :labels="['bar', 'foo']"/>
@@ -155,6 +162,7 @@ export default {
       toggleModel: true,
       inputModel: '',
       selectModel: '',
+      multiselectModel: [],
       items: [
         { key: 'one', value: 'Hello there'},
         { key: 'two', value: 'This was generated'},

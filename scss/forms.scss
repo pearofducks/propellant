@@ -104,6 +104,14 @@
     top: 1.6rem;
     margin-top: -0.25rem;
   }
+
+  &.multiple select {
+    padding-right: 0.8rem;
+  }
+
+  &.multiple:after {
+    content: none;
+  }
 }
 
 .select {

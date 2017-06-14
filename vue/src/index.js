@@ -6,6 +6,7 @@ import pPopup from './popup'
 import pSectionbar from './sectionBar'
 import pSelect from './select'
 import pSwitchbox from './switchbox'
+import pTextarea from './textarea'
 import pToast from './toast'
 
 export {
@@ -17,5 +18,6 @@ export {
   pSectionbar,
   pSelect,
   pSwitchbox,
+  pTextarea,
   pToast
 }
