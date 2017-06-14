@@ -14,9 +14,18 @@ Vue.use(propellant)
 import '~prpllnt/lib/main.css'
 ```
 
+##### works outside build systems too!
+
+```html
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/prpllnt/lib/main.css" />
+...
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/prpllnt"></script>
+```
+
 ##### or just certain components
 
-```
+```javascript
 import { pToast } from 'prpllnt'
 Vue.component(pToast.name, pToast)
 ```
