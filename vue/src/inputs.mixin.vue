@@ -18,22 +18,21 @@ export default {
   data() {
     return {
       focused: false,
-      id: this.generateID
+      id: this.generateID()
     }
   },
   computed: {
     innerModel() {
       return this.model
     },
-    generateID() {
-      if (!this.noLabel) return this.label + Date.now()
-      return Math.random().toString(16).slice(2) + Date.now()
-    },
     noLabel() {
-      return this.label === '' || this.label === undefined
+      return this.label === undefined
     }
   },
   methods: {
+    generateID() {
+      return Math.random().toString(16).slice(2) + Date.now()
+    },
     onChange(e) { this.$emit('update:model', e.target[this.modelType] ) }
   }
 }
