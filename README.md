@@ -4,20 +4,20 @@
 
 ##### install
 
-`npm install propellant-components`
+`npm install prpllnt`
 
 ##### use everything
 
 ```javascript
-import propellant from 'propellant-components'
+import propellant from 'prpllnt'
 Vue.use(propellant)
-import '~propellant-components/lib/main.css'
+import '~prpllnt/lib/main.css'
 ```
 
 ##### or just certain components
 
 ```
-import { pToast } from 'propellant-components'
+import { pToast } from 'prpllnt'
 Vue.component(pToast.name, pToast)
 ```
 
