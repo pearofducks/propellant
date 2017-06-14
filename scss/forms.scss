@@ -85,6 +85,7 @@
   display: block;
   resize: vertical;
   min-height: 6rem;
+  margin-top: 0.6rem;
 }
 
 .select-wrapper {
@@ -105,12 +106,17 @@
     margin-top: -0.25rem;
   }
 
-  &.multiple select {
-    padding-right: 0.8rem;
-  }
+  &.multiple {
+    display: flex;
+    margin-top: 0.6rem;
 
-  &.multiple:after {
-    content: none;
+    select {
+      padding-right: 0.8rem;
+    }
+
+    &:after {
+      content: none;
+    }
   }
 }
 

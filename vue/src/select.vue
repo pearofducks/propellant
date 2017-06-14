@@ -1,11 +1,12 @@
 <template>
   <div class="input-group">
-    <label class="input-label">{{ label }}</label>
+    <label class="input-label">{{ label }}
     <span class="select-wrapper" :class="{ 'multiple': multiple }">
       <select :disabled="disabled" :multiple="multiple" class="select" v-model="innerModel" @change="onChange">
         <slot></slot>
       </select>
     </span>
+    </label>
   </div>
 </template>
 
