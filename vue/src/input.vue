@@ -28,6 +28,10 @@
 <script>
 import inputs from './inputs.mixin'
 
+function id() {
+ return Math.random().toString(16).slice(2) + (new Date()).getTime()
+}
+
 const default_opts = {
   msg: '',
   icon: '',
@@ -57,7 +61,8 @@ export default {
       modelType: 'value',
       validationIcon: '',
       validationMsg: '',
-      validationClass: ''
+      validationClass: '',
+      id: ""
     }
   },
   methods: {
@@ -68,7 +73,6 @@ export default {
         this.validationIcon = result.icon
         this.validationMsg = result.msg
         this.validationClass = result.class
-        console.log(result)
       }
       this.onChange(e)
     }

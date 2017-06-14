@@ -1,7 +1,7 @@
 <template>
   <div class="input-group">
     <span class="select-wrapper">
-      <select :disabled="disabled" class="select" v-model="innerModel" @change="onChange">
+      <select :disabled="disabled" :multiple="multiple" class="select" v-model="innerModel" @change="onChange">
         <slot></slot>
       </select>
     </span>
@@ -15,6 +15,11 @@ export default {
   name: 'pSelect',
   mixins: [ inputs ],
   props: {
+    multiple: {
+      type: Boolean,
+      default: false,
+      note: "controls if the element should be a multi-select or not"
+    }
   },
   data() {
     return { modelType: 'value' }
