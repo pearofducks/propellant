@@ -38,3 +38,10 @@ demo: build
 build:		## Build the demo page
 	@echo "\nCreating a production build of the demo\n"
 	@npm run build:demo
+
+bump:
+	npm version patch
+
+publish: release
+	npm publish
+	rm -rf lib
