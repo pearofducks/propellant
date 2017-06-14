@@ -1,8 +1,7 @@
 <template>
   <div class="input-group">
-    <label class="input-label">{{ label }}
-      <textarea :disabled="disabled" class="textarea" :placeholder="placeholder"v-model="innerModel" @change="onChange"> </textarea>
-    </label>
+    <label :for="id" class="input-label">{{ label }}</label>
+    <textarea :id="id" :disabled="disabled" class="textarea" :placeholder="placeholder"v-model="innerModel" @change="onChange"> </textarea>
   </div>
 </template>
 
@@ -12,11 +11,6 @@ export default {
   name: 'pTextarea',
   mixins: [ inputs ],
   props: {
-    label: {
-      type: String,
-      default: '',
-      note: "a label to be placed before the textarea field"
-    },
     placeholder: {
       type: String,
       default: '',

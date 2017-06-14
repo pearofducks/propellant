@@ -9,11 +9,14 @@
   padding: 0.6rem 0;
   user-select: none;
   font-weight: 500;
+
+  &.no-label {
+    display: none;
+  }
 }
 
 .input-wrapper {
   position: relative;
-  margin-top: 0.6rem;
 }
 
 .input-validation-icon {
@@ -108,7 +111,6 @@
 
   &.multiple {
     display: flex;
-    margin-top: 0.6rem;
 
     select {
       padding-right: 0.8rem;

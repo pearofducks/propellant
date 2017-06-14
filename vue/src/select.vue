@@ -1,12 +1,11 @@
 <template>
   <div class="input-group">
-    <label class="input-label">{{ label }}
+    <label :for="id" class="input-label" :class="{ 'no-label': noLabel }">{{ label }}</label>
     <span class="select-wrapper" :class="{ 'multiple': multiple }">
-      <select :disabled="disabled" :multiple="multiple" class="select" v-model="innerModel" @change="onChange">
+      <select :id="id" :disabled="disabled" :multiple="multiple" class="select" v-model="innerModel" @change="onChange">
         <slot></slot>
       </select>
     </span>
-    </label>
   </div>
 </template>
 
@@ -17,10 +16,6 @@ export default {
   name: 'pSelect',
   mixins: [ inputs ],
   props: {
-    label: {
-      type: String,
-      note: "an input-style label to be prepended to the select, alternatively specify an option with disabled and value=''"
-    },
     multiple: {
       type: Boolean,
       default: false,
