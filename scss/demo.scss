@@ -42,7 +42,7 @@ section {
       font-family: "Source Serif Pro", serif;
       display: inline-block;
       position: absolute;
-      left: -base(8);
+      left: - base(6);
       top: 0.2rem;
 
       @include mobile {
@@ -100,13 +100,13 @@ main {
   }
 }
 
-article.swatch {
+.color .swatch {
   height: base(22);
   width: auto;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  margin: $base;
+  margin: base(2);
   display: flex;
   justify-content: center;
 
@@ -155,22 +155,13 @@ article.swatch {
   }
 }
 
-article.swatch-text {
+.color .swatch-text {
   padding: base(3);
-
-  h5, p {
-    margin: 0;
-  }
 
   h5 {
     font-size: base(3);
     font-weight: 500;
-  }
-
-  p {
-    font-size: base(3);
-    font-weight: 500;
-    margin-top: 0.2rem;
+    margin: 0;
 
     @include mobile {
       font-size: base(2);
