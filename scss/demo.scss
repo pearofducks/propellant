@@ -13,6 +13,7 @@ html {
 body {
   margin: 7.2rem 9.6rem;
   margin-top: 0;
+  background-color: colors(background, light);
   transition: 0.3s;
 
   @include mobile {
