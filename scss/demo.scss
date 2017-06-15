@@ -38,7 +38,7 @@ section {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       color: colors(gray);
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 400;
       font-family: "Source Serif Pro", serif;
       display: inline-block;
@@ -236,7 +236,6 @@ header.docs {
   }
 
   h1 {
-    font-weight: 400;
     font-size: 36px;
     line-height: 36px;
     letter-spacing: -0.05rem;
@@ -271,7 +270,7 @@ header.docs {
 
 .title {
   font-family: "Source Serif Pro";
-  font-weight: 600;
+  font-weight: 400;
   font-size: 2.4rem;
   line-height: 2.4rem;
   margin: 0;
