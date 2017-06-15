@@ -11,20 +11,20 @@ html {
 }
 
 body {
-  margin: 7.2rem 9.6rem;
+  margin: ($base * 6) ($base * 8);
   margin-top: 0;
   transition: 0.3s;
 
   @include mobile {
-    margin: 1.2rem;
+    margin: $base;
   }
 }
 
 section {
   &.labelled {
-    margin: 9.6rem 0;
+    margin: ($base * 8) 0;
     position: relative;
-    padding-left: 3.6rem;
+    padding-left: $base * 3;
     border-left: 0.1rem solid colors(gray, light);
 
     @include mobile {
@@ -37,12 +37,12 @@ section {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       color: colors(gray);
-      font-size: 1.2rem;
+      font-size: $base;
       font-weight: 400;
       font-family: "Source Serif Pro", serif;
       display: inline-block;
       position: absolute;
-      left: -2.4rem;
+      left: -$base * 2;
       top: 0.2rem;
 
       @include mobile {
@@ -50,8 +50,8 @@ section {
         writing-mode: initial;
         transform: none;
         left: 0;
-        top: -2.4rem;
-        font-size: 1rem;
+        top: -$base;
+        font-size: $base / 1.5;
       }
     }
   }
@@ -60,16 +60,16 @@ section {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: 2.4rem 0;
+    margin: $base 0;
 
     &:last-child {
-      padding-bottom: 2.4rem;
+      padding-bottom: $base;
     }
   }
 }
 
 main {
-  margin: 1.2rem;
+  margin: $base;
   margin-left: 0;
 
   @include mobile {
@@ -78,7 +78,7 @@ main {
 }
 
 main section.labelled:first-child {
-  margin-top: 1.2rem;
+  margin-top: $base;
 }
 
 main section.l {
@@ -87,12 +87,12 @@ main section.l {
 
 .color {
   background-color: white;
-  width: 14rem;
-  box-shadow: 0 2px 0 $border-color;
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
-  margin-right: 2.4rem;
-  border-radius: 0.325rem;
+  width: $base * 12;
+  box-shadow: 0 0.2rem 0 $border-color;
+  margin-top: $base;
+  margin-bottom: $base;
+  margin-right: $base * 2;
+  border-radius: $base / 4;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,7 +103,7 @@ main section.l {
   }
 
   @include mobile {
-    width: 9rem;
+    width: $base * 7.5;
   }
 }
 
