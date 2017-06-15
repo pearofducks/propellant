@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  margin: ($base * 6) ($base * 8);
+  margin: base(18) base(24);
   margin-top: 0;
   transition: 0.3s;
 
@@ -22,9 +22,9 @@ body {
 
 section {
   &.labelled {
-    margin: ($base * 8) 0;
+    margin: base(24) 0;
     position: relative;
-    padding-left: $base * 3;
+    padding-left: base(9);
     border-left: 0.1rem solid colors(gray, light);
 
     @include mobile {
@@ -37,12 +37,12 @@ section {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       color: colors(gray);
-      font-size: $base;
+      font-size: base(3);
       font-weight: 400;
       font-family: "Source Serif Pro", serif;
       display: inline-block;
       position: absolute;
-      left: -$base * 2;
+      left: -base(8);
       top: 0.2rem;
 
       @include mobile {
@@ -50,8 +50,8 @@ section {
         writing-mode: initial;
         transform: none;
         left: 0;
-        top: -$base;
-        font-size: $base / 1.5;
+        top: -base(3);
+        font-size: base(2);
       }
     }
   }
@@ -60,16 +60,16 @@ section {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: $base 0;
+    margin: base() 0;
 
     &:last-child {
-      padding-bottom: $base;
+      padding-bottom: base();
     }
   }
 }
 
 main {
-  margin: $base;
+  margin: base();
   margin-left: 0;
 
   @include mobile {
@@ -80,12 +80,12 @@ main {
 
 .color {
   background-color: white;
-  width: $base * 12;
+  width: base(35);
   box-shadow: 0 0.2rem 0 $border-color;
-  margin-top: $base;
-  margin-bottom: $base;
-  margin-right: $base * 2;
-  border-radius: $base / 4;
+  margin-top: base(3);
+  margin-bottom: base(3);
+  margin-right: base(6);
+  border-radius: base();
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,12 +96,12 @@ main {
   }
 
   @include mobile {
-    width: $base * 7.5;
+    width: base(22);
   }
 }
 
 article.swatch {
-  height: $base * 7.5;
+  height: base(22);
   width: auto;
   cursor: pointer;
   position: relative;
@@ -117,7 +117,7 @@ article.swatch {
   p.hex { 
     opacity: 0.6;
     align-self: flex-end;
-    font-size: $base / 1.5;
+    font-size: base(2);
     @include mobile { align-self: center; margin-bottom: 0; }
   }
 
@@ -127,7 +127,7 @@ article.swatch {
 
   @include mobile {
     cursor: default;
-    height: $base * 4;
+    height: base(12);
   }
 
 
@@ -141,9 +141,9 @@ article.swatch {
     position: absolute;
     content: "COPY";
     font-weight: 700;
-    font-size: $base;
+    font-size: base(3);
     text-align: center;
-    padding: $base;
+    padding: base(3);
     top: 0;
     opacity: 0.8;
     transform: translateY(-100%);
@@ -156,30 +156,30 @@ article.swatch {
 }
 
 article.swatch-text {
-  padding: $base;
+  padding: base(3);
 
   h5, p {
     margin: 0;
   }
 
   h5 {
-    font-size: $base;
+    font-size: base(3);
     font-weight: 500;
   }
 
   p {
-    font-size: $base;
+    font-size: base(3);
     font-weight: 500;
     margin-top: 0.2rem;
 
     @include mobile {
-      font-size: $base / 1.5;
+      font-size: base(2);
     }
   }
 }
 
 main + header {
-  margin-top: 4.8rem;
+  margin-top: base(12);
 }
 
 section.collapse {
@@ -200,7 +200,7 @@ article.collapse {
 }
 
 .modal-container, .popup-container {
-  padding: $base * 2;
+  padding: base(6);
   background-color: colors(background, light);
 }
 
@@ -223,17 +223,17 @@ header.docs {
   }
 
   h1 {
-    font-size: $base * 3;
-    line-height: $base * 3;
+    font-size: base(9);
+    line-height: base(9);
     letter-spacing: -0.05rem;
   }
 
   h4 {
     color: colors(gray);
-    font-size: $base;
-    line-height: $base * 1.5;
-    margin-left: ($base * 3) + ($base * 1.5) + 0.2rem;
-    margin-top: $base / 1.5;
+    font-size: base(3);
+    line-height: base(4);
+    margin-left: base(9) + base(4) + 0.2rem;
+    margin-top: base(2);
   }
 }
 
@@ -242,9 +242,9 @@ header.docs {
 }
 
 .demo-icon {
-  height: $base * 3;
+  height: base(9);
   margin-top: 0.2rem;
-  margin-right: $base * 1.5;
+  margin-right: base(4);
 
   .from-color, .to-color {
     stop-color: colors(success);
@@ -258,17 +258,17 @@ header.docs {
 .title {
   font-family: "Source Serif Pro";
   font-weight: 400;
-  font-size: $base * 2;
-  line-height: $base * 2;
+  font-size: base(6);
+  line-height: base(6);
   margin: 0;
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: $base;
-  line-height: $base;
+  font-size: base(3);
+  line-height: base(4);
   margin-bottom: 0;
-  margin-top: $base;
+  margin-top: base(4);
 }
 
 @import "code-blocks";

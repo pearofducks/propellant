@@ -6,14 +6,14 @@
 
 $html-font-size: 62.5%;
 $html-line-height: 1.42857;
-$font-size: 1.2rem;
-$base: 1.2rem;
+$base: 0.4rem;
+$font-size: $base * 3;
 
 $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
-$layout-padding: 1.4rem;
-$input-min-width: 18rem;
-$border-radius: 0.3rem;
+$layout-padding: $base * 3;
+$input-min-width: $base * 40;
+$border-radius: 0.2rem;
 $border-width: 0.1rem;
 
 // Colors
@@ -56,3 +56,7 @@ $code-color: colors(danger);
 $body-font-color: colors(gray, dark);
 
 $ui-colors: primary success warning danger;
+
+@function base($multiple: 1) {
+  @return $base * $multiple;
+}

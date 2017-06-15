@@ -58,7 +58,7 @@
         <button class="button" @click="showModal('demo')">open a modal</button>
         <button class="button" @click="showRemote">open a remote modal</button>
       </section>
-      <section class="collapse labelled" data-type="collapse">
+      <section style="padding-top: 1.2rem; padding-bottom: 1.2rem;" class="labelled" data-type="collapse">
         <p-collapse name="demo-first">
           <h2 slot="title">I expand when clicked!</h2>
           <div slot="content">

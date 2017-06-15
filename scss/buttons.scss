@@ -1,8 +1,8 @@
 .button {
   @include is-control;
 
-  padding: 0.5rem 1.5rem;
-  margin: 0.3rem;
+  padding: base() base(3);
+  margin: base();
   background: colors(light);
   border-width: 0;
   box-shadow: 1px 1px 1px $border-color;
