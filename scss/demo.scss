@@ -77,13 +77,6 @@ main {
   }
 }
 
-main section.labelled:first-child {
-  margin-top: $base;
-}
-
-main section.l {
-  @include mobile;
-}
 
 .color {
   background-color: white;
