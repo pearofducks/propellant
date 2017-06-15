@@ -235,17 +235,17 @@ header.docs {
   }
 
   h1 {
-    font-size: 36px;
-    line-height: 36px;
+    font-size: 3.6rem;
+    line-height: 3.6rem;
     letter-spacing: -0.05rem;
   }
 
   h4 {
     color: colors(gray);
-    font-size: 14px;
-    line-height: 14px;
-    margin-left: 56px;
-    margin-top: 12px;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin-left: 5.6rem;
+    margin-top: 0.8rem;
   }
 }
 
@@ -254,9 +254,9 @@ header.docs {
 }
 
 .demo-icon {
-  height: 36px;
-  margin-top: 3px;
-  margin-right: 18px;
+  height: 3.6rem;
+  margin-top: 0.2rem;
+  margin-right: 1.8rem;
 
   .from-color, .to-color {
     stop-color: colors(success);
