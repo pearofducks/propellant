@@ -65,6 +65,7 @@
           <option>Two</option>
           <option>Three</option>
         </p-select>
+        <pre><code>model = {{ JSON.stringify(multiselectModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="toggles">
         <p-switchbox :model.sync="toggleModel" :labels="['bar', 'foo']"/>

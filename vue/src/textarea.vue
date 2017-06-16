@@ -17,10 +17,8 @@ export default {
       note: "a placeholder for the textarea field"
     }
   },
-  data() {
-    return {
-      modelType: 'value'
-    }
+  methods: {
+    stateFromEvent(e) { return e.target.value }
   }
 }
 </script>

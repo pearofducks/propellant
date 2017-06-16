@@ -48,13 +48,13 @@ export default {
   },
   data() {
     return {
-      modelType: 'value',
       validationIcon: '',
       validationMsg: '',
       validationClass: ''
     }
   },
   methods: {
+    stateFromEvent(e) { return e.target.value },
     validateAndChange(e) {
       let value = e.target.value
       if (this.validator) {

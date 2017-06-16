@@ -21,8 +21,8 @@ export default {
       note: "a label to be appended after the checkbox"
     }
   },
-  data() {
-    return { modelType: 'checked' }
+  methods: {
+    stateFromEvent(e) { return e.target.checked }
   }
 }
 </script>

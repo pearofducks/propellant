@@ -22,8 +22,16 @@ export default {
       note: "controls if the element should be a multi-select or not"
     }
   },
-  data() {
-    return { modelType: 'value' }
+  methods: {
+    stateFromEvent(e) { 
+      if (!this.multiple) return e.target.value
+      let result = []
+      let options = e.target.options
+      for (let i=0, length=options.length; i<length; i++) {
+        if (options[i].selected) result.push(options[i].value)
+      }
+      return result
+    }
   }
 }
 </script>

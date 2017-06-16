@@ -13,6 +13,10 @@ export default {
     label: {
       type: String,
       note: "a label to be placed before the form field"
+    },
+    uid: {
+      type: String,
+      note: "a unique identifier for the component, used to bind labels to inputs"
     }
   },
   data() {
@@ -31,9 +35,10 @@ export default {
   },
   methods: {
     generateID() {
+      if (this.uid) return this.uid
       return Math.random().toString(16).slice(2) + Date.now()
     },
-    onChange(e) { this.$emit('update:model', e.target[this.modelType] ) }
+    onChange(e) { this.$emit('update:model', this.stateFromEvent(e) ) }
   }
 }
 </script>

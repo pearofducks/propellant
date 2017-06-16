@@ -22,8 +22,8 @@ export default {
       note: "an array of labels in the form: [left-label, right-label]"
     }
   },
-  data() {
-    return { modelType: 'checked' }
+  methods: {
+    stateFromEvent(e) { return e.target.checked }
   },
   computed: { 
     leftLabel() { return this.labels[0] ? this.labels[0] : "" },
