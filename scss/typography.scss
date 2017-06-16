@@ -1,43 +1,47 @@
 h1, h2, h3, h4, h5, h6 {
   color: inherit;
   font-weight: 700;
-  margin-bottom: base(3);
   margin-top: 0;
 }
 
 h1 {
   font-size: base(7);
   line-height: base(10);
-  letter-spacing: 0.05rem;
+  margin-bottom: base(3);
+  letter-spacing: 0.08rem;
 }
 
 h2 {
   font-size: base(6);
-  line-height: base(9);
-  letter-spacing: 0.025rem;
+  line-height: base(8);
+  margin-bottom: base(3);
+  letter-spacing: 0.04rem;
   font-weight: 600;
 }
 
 h3 {
   font-size: base(5);
-  line-height: base(7);
+  line-height: base(8);
+  margin-bottom: base(3);
   font-weight: 600;
 }
 
 h4 {
   font-size: base(4);
   line-height: base(6);
+  margin-bottom: base(3);
   font-weight: 600;
 }
 
 h5 {
   font-size: base(3);
   line-height: base(5);
+  margin-bottom: base(3);
 }
 
 p {
-  font-size: base(3);
-  line-height: base(4);
+  font-size: base(4);
+  line-height: base(5);
   margin: 0 0 base(3);
 }
 

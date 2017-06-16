@@ -50,7 +50,7 @@ section {
         writing-mode: initial;
         transform: none;
         left: 0;
-        top: -base(3);
+        top: - base(6);
         font-size: base(2);
       }
     }
@@ -60,23 +60,8 @@ section {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: base() 0;
-
-    &:last-child {
-      padding-bottom: base();
-    }
   }
 }
-
-main {
-  margin: base();
-  margin-left: 0;
-
-  @include mobile {
-    margin: 0;
-  }
-}
-
 
 .color {
   background-color: white;
@@ -100,7 +85,7 @@ main {
   }
 }
 
-.color .swatch {
+.swatch {
   height: base(22);
   width: auto;
   cursor: pointer;
@@ -156,7 +141,7 @@ main {
 }
 
 .color .swatch-text {
-  padding: base(3);
+  padding: base(2);
 
   h5 {
     font-size: base(3);
@@ -234,7 +219,7 @@ header.docs {
 
 .demo-icon {
   height: base(9);
-  margin-top: 0.2rem;
+  margin-top: base();
   margin-right: base(4);
 
   .from-color, .to-color {

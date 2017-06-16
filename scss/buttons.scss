@@ -1,7 +1,7 @@
 .button {
   @include is-control;
 
-  padding: base() base(3);
+  padding: base(2) base(4);
   margin: base();
   background: colors(light);
   border-width: 0;
