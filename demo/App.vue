@@ -141,16 +141,15 @@
           <p style="margin-bottom: 0;">This is a subtitle for the sectionbar</p>
         </p-sectionbar>
         <p-sectionbar color-bar="danger-color" callout="chevron">
-          <h3 style="margin: 0;">Please secure your account by verifying your email</h3>
+          <h5 style="margin: 0;">Please secure your account by verifying your email</h5>
         </p-sectionbar>
         <p-sectionbar callout="hamburger">
-          <h2 style="margin-bottom: 6px">A rather plain sectionbar</h2>
+          <h4 style="margin-bottom: 6px">A rather plain sectionbar</h4>
           <p style="margin-bottom: 0;">With some more additional text to describe it. This sectionbar has a callout but no color bar.</p>
         </p-sectionbar>
         <p-sectionbar color-bar="success-color" icon="/quackIcon.svg">
-          <h3 style="margin-bottom: 6px">A sectionbar with an icon, but no callout</h3>
-          <h5 style="margin-bottom: 6px;">Any content can be in this area, not just subtitles</h5>
-          <p style="margin-bottom: 0px;">Click here to go to an entirely new section of the app, that's probably why this is called a section bar. We're really clever when we come up with names for things</p>
+          <h5 style="margin-bottom: 6px">A sectionbar with an icon, but no callout</h5>
+          <p style="margin-bottom: 0px;">Additional helper text and stuff</p>
         </p-sectionbar>
         <p-sectionbar color-bar="warning-color" icon="/quackIcon.svg" callout="plus">
           <p style="margin-bottom: 0px;">Another section with all the things!</p>
