@@ -173,7 +173,14 @@ export default {
     this.$refs.looped[0].show()
   },
   methods: {
-    inputIsLong(value) { if (value.length > 5) return { msg: 'that input is long', class: 'success', icon: 'success' } },
+    inputIsLong(value) {
+      if (value.length > 5) {
+        return { msg: 'that input is long', class: 'success', icon: 'success' }
+      }
+      else {
+        return { msg: 'input is not long enough', class: 'warning', icon: 'alert'}
+      }
+    },
     showModal(ref) { this.$refs[ref].show() },
     hideModal(ref) { this.$refs[ref].hide() },
     showRemote() { this.$modal.show("remote") },
