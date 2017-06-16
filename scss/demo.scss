@@ -20,6 +20,8 @@ body {
   }
 }
 
+.button { margin: base(); }
+
 section {
   &.labelled {
     margin: base(24) 0;

@@ -2,7 +2,6 @@
   @include is-control;
 
   padding: base(2) base(4);
-  margin: base();
   background: colors(light);
   border-width: 0;
   box-shadow: 1px 1px 1px $border-color;
@@ -14,6 +13,10 @@
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+
+  & ~ & {
+    margin-left: base();
+  }
 
   &:focus, &:hover {
     color: colors(gray, dark);

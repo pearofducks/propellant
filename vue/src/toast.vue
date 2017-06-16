@@ -19,7 +19,15 @@ const default_opts = {
 
 export default {
   name: 'pToast',
+  props: {
+    noEvents: {
+      type: Boolean,
+      default: false,
+      note: "disables the creation of event listeners"
+    }
+  },
   created() {
+    if (this.noEvents) return
     events.$on('toast:push', (opts, force) => {
       if (force) {
         this.clearTimer()
