@@ -1,8 +1,8 @@
 <template>
-  <div class="input-group has-select">
-    <label v-if="!noLabel" :for="id" class="input-label">{{ label }}</label>
-    <span class="select-wrapper" :class="{ 'multiple': multiple }">
-      <select :id="id" :disabled="disabled" :multiple="multiple" class="select" v-model="innerModel" @change="onChange">
+  <div class="p-input-group has-select">
+    <label v-if="!noLabel" :for="id" class="p-input-label">{{ label }}</label>
+    <span class="p-select-wrapper" :class="{ 'multiple': multiple }">
+      <select :id="id" :disabled="disabled" :multiple="multiple" class="p-select" v-model="innerModel" @change="onChange">
         <slot></slot>
       </select>
     </span>

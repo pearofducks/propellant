@@ -1,7 +1,7 @@
 <template>
-  <transition name='from-bottom'>
-    <aside ref="backdrop" class="modal-backdrop" v-if="visible" @click="eventHide($event)">
-      <div class="modal-container">
+  <transition name='p-from-bottom'>
+    <aside ref="backdrop" class="p-modal-backdrop" v-if="visible" @click="eventHide($event)">
+      <div class="p-modal-container">
         <slot></slot>
       </div>
     </aside>
@@ -33,7 +33,7 @@ export default {
     }
   },
   data() {
-    return { bodyClassName: 'modal-showing' }
+    return { bodyClassName: 'p-modal-showing' }
   },
   methods: {
     eventHide(e) {

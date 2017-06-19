@@ -1,8 +1,8 @@
 <template>
-  <transition name='toast-bottom'>
-    <aside v-show="showing" class="toast-wrapper">
-      <div class="toast-container" :class="type">
-        <span class="toast-message" v-html="msg"></span>
+  <transition name='p-toast-bottom'>
+    <aside v-show="showing" class="p-toast-wrapper">
+      <div class="p-toast-container" :class="type">
+        <span class="p-toast-message" v-html="msg"></span>
       </div>
     </aside>
   </transition>

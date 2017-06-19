@@ -22,21 +22,21 @@
       </section>
       <section class="labelled" data-type="buttons">
         <div class="input-group">
-          <a class="button">a.button</a>
-          <button class="button">normal</button>
-          <button disabled class="button">normal disabled</button>
+          <a class="p-button">a.button</a>
+          <button class="p-button">normal</button>
+          <button disabled class="p-button">normal disabled</button>
         </div>
         <div class="input-group">
-          <button class="button button-primary">filled</button>
-          <button disabled class="button button-primary">filled disabled</button>
+          <button class="p-button is-primary">filled</button>
+          <button disabled class="p-button is-primary">filled disabled</button>
         </div>
         <div class="input-group">
-          <button class="button button-link">link style</button>
-          <button disabled class="button button-link">link style disabled</button>
+          <button class="p-button is-link">link style</button>
+          <button disabled class="p-button is-link">link style disabled</button>
         </div>
         <div class="input-group">
-          <button class="button button-primary loading">loading</button>
-          <button class="button loading">loading</button>
+          <button class="p-button is-primary p-loading">loading</button>
+          <button class="p-button p-loading">loading</button>
         </div>
       </section>
       <section class="labelled" data-type="inputs">
@@ -75,16 +75,16 @@
         <pre><code>model = {{ JSON.stringify(toggleModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="toast">
-        <button class="button" @click="showtoast">open a toast</button>
-        <button class="button" @click="forcetoast">force a toast - no timer</button>
-        <button class="button" @click="forcetoast2">force a second toast - no timer</button>
-        <button class="button" @click="forcetoast3">force a third toast - with timer</button>
-        <button class="button" @click="closetoast">close a single toast</button>
-        <button class="button" @click="cleartoast">clear all toasts</button>
+        <button class="p-button" @click="showtoast">open a toast</button>
+        <button class="p-button" @click="forcetoast">force a toast - no timer</button>
+        <button class="p-button" @click="forcetoast2">force a second toast - no timer</button>
+        <button class="p-button" @click="forcetoast3">force a third toast - with timer</button>
+        <button class="p-button" @click="closetoast">close a single toast</button>
+        <button class="p-button" @click="cleartoast">clear all toasts</button>
       </section>
       <section class="labelled" data-type="modal">
-        <button class="button" @click="showModal('demo')">open a modal</button>
-        <button class="button" @click="showRemote">open a remote modal</button>
+        <button class="p-button" @click="showModal('demo')">open a modal</button>
+        <button class="p-button" @click="showRemote">open a remote modal</button>
       </section>
       <section style="padding-top: 1.2rem; padding-bottom: 1.2rem;" class="labelled" data-type="collapse">
         <p-collapse name="demo-first">
@@ -106,7 +106,7 @@
       </section>
       <section class="labelled" data-type="accordion">
         <p-collapse v-for="item in items" :key="item.key" ref="looped" ns="looped" :name="item.key">
-          <h2 slot="title"><button class="button-null">{{ item.value }}</button></h2>
+          <h2 slot="title"><button class="p-has-no-style">{{ item.value }}</button></h2>
           <div slot="content">
             <h3>More content</h3>
             <p>This is the rest of the content for element {{ item.key }}, including a list</p>
@@ -119,7 +119,7 @@
           </div>
         </p-collapse>
         <p-collapse :key="10" ns="looped" name="10">
-          <h2 slot="title">And this, from a manual entry</h2>
+          <h2 slot="title"><button class="p-has-no-style">And this, from a manual entry</button></h2>
           <div slot="content">
             <h3>Perhaps this content should be slightly longer</h3>
             <p>This is going to be the longest content of the series, perhaps with a lorum ipsum below</p>
@@ -130,28 +130,28 @@
         </p-collapse>
       </section>
       <section class="labelled" data-type="dialog">
-        <button @click="showdialog" class="button">show a dialog</button>
+        <button @click="showdialog" class="p-button">show a dialog</button>
         <p-popup title="Example dialog" ref="demoDialog">
           <button @click="clicky" class="button">wat</button>
         </p-popup>
       </section>
       <section class="labelled" data-type="sectionbar">
-        <p-sectionbar color-bar="primary-color" callout="hotdog">
+        <p-sectionbar color-bar="is-primary" callout="hotdog">
           <h4 style="margin-bottom: 6px">This is a sectionbar</h4>
           <p style="margin-bottom: 0;">This is a subtitle for the sectionbar</p>
         </p-sectionbar>
-        <p-sectionbar color-bar="danger-color" callout="chevron">
+        <p-sectionbar color-bar="is-danger" callout="chevron">
           <h5 style="margin: 0;">Please secure your account by verifying your email</h5>
         </p-sectionbar>
         <p-sectionbar callout="hamburger">
           <h4 style="margin-bottom: 6px">A rather plain sectionbar</h4>
           <p style="margin-bottom: 0;">With some more additional text to describe it. This sectionbar has a callout but no color bar.</p>
         </p-sectionbar>
-        <p-sectionbar color-bar="success-color" icon="/quackIcon.svg">
+        <p-sectionbar color-bar="is-success" icon="/quackIcon.svg">
           <h5 style="margin-bottom: 6px">A sectionbar with an icon, but no callout</h5>
           <p style="margin-bottom: 0px;">Additional helper text and stuff</p>
         </p-sectionbar>
-        <p-sectionbar color-bar="warning-color" icon="/quackIcon.svg" callout="plus">
+        <p-sectionbar color-bar="is-warning" icon="/quackIcon.svg" callout="plus">
           <p style="margin-bottom: 0px;">Another section with all the things!</p>
         </p-sectionbar>
       </section>
@@ -184,12 +184,12 @@ export default {
     hideModal(ref) { this.$refs[ref].hide() },
     showRemote() { this.$modal.show("remote") },
     showtoast() { this.$toast.push({ msg:'<h3>Hello I demonstrate toasts</h3>' }) },
-    forcetoast() { this.$toast.push({ msg:'<div style="display: flex;"><span class="button button-primary loading" style="border: none; padding: 0; width: 1.2rem; box-shadow: none;"></span><h3 style="margin-left: 2.4rem">Hello I am important and loading something</h3></div>', timeout: 0 }, true) },
-    forcetoast2() { this.$toast.push({ msg:'<h3>Hello I am also important</h3>', timeout: 0, type: 'danger light' }, true) },
-    forcetoast3() { this.$toast.push({ msg:'<h3>I am the most importantest</h3>', timeout: 3600, type: 'success light' }, true) },
+    forcetoast() { this.$toast.push({ msg:'<div style="display: flex;"><span class="p-button is-primary is-loading" style="border: none; padding: 0; width: 1.2rem; box-shadow: none;"></span><h3 style="margin-left: 2.4rem">Hello I am important and loading something</h3></div>', timeout: 0 }, true) },
+    forcetoast2() { this.$toast.push({ msg:'<h3>Hello I am also important</h3>', timeout: 0, type: 'is-danger is-light' }, true) },
+    forcetoast3() { this.$toast.push({ msg:'<h3>I am the most importantest</h3>', timeout: 3600, type: 'is-success is-light' }, true) },
     closetoast() { this.$toast.hide() },
     cleartoast() { this.$toast.hide(true) },
-    clicky() { this.$toast.push({ msg:'<h3>You did a thing! I closed the dialog!</h3>', timeout: 1200, type: 'danger' }); this.$refs.demoDialog.hide() },
+    clicky() { this.$toast.push({ msg:'<h3>You did a thing! I closed the dialog!</h3>', timeout: 1200, type: 'is-danger' }); this.$refs.demoDialog.hide() },
     showdialog() { this.$refs.demoDialog.show() }
   },
   data () {

@@ -1,8 +1,8 @@
 <template>
-  <transition name="fade-in">
-    <aside class="popup-backdrop" v-if="visible">
-      <div class="popup-container">
-        <div class="popup-titlebar">
+  <transition name="p-fade-in">
+    <aside class="p-popup-backdrop" v-if="visible">
+      <div class="p-popup-container">
+        <div class="p-popup-titlebar">
           <h3>{{title}}</h3>
           <span v-if="closeButton" class="close">X</span>
         </div>
@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       visible: false,
-      bodyClassName: 'popup-showing'
+      bodyClassName: 'p-popup-showing'
     }
   },
   props: {
