@@ -1,26 +1,22 @@
-.input-group {
+.p-input-group {
   &:not(:last-child) {
     margin-bottom: base(5);
   }
 }
 
-.input-label, .input-hint {
+.p-input-label, .p-input-hint {
   display: block;
   padding: base() 0;
   user-select: none;
   font-weight: 500;
   font-size: base(3);
-
-  &.no-label {
-    display: none;
-  }
 }
 
-.input-wrapper {
+.p-input-wrapper {
   position: relative;
 }
 
-.input-validation-icon {
+.p-input-validation-icon {
   position: absolute;
   top: 0;
   right: 0;
@@ -28,13 +24,13 @@
   margin: base(3);
 
   @each $name in $ui-colors {
-    .#{$name} & .icon {
+    .#{$name} & .p-input-icon {
       stroke: colors($name);
     }
   }
 }
 
-.input-hint {
+.p-input-hint {
   color: colors(gray);
 
   @each $name in $ui-colors {
@@ -44,8 +40,8 @@
   }
 }
 
-.input, .select, .textarea {
-  @include is-control;
+.p-input, .p-select, .p-textarea {
+  @include p-controls;
 
   background-color: colors(light);
   min-width: $input-min-width;
@@ -74,24 +70,24 @@
   }
 }
 
-.input, .textarea {
+.p-input, .p-textarea {
   width: 100%;
   max-width: 100%;
 }
 
-.input-wrapper {
-  &.has-validation-icon .input {
+.p-input-wrapper {
+  &.has-validation-icon .p-input {
     padding-right: base(10);
   }
 }
 
-.textarea {
+.p-textarea {
   display: block;
   resize: vertical;
   min-height: base(15);
 }
 
-.select-wrapper {
+.p-select-wrapper {
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -122,7 +118,7 @@
   }
 }
 
-.select {
+.p-select {
   cursor: pointer;
   border-width: 0;
   box-shadow: 1px 1px 1px $border-color;

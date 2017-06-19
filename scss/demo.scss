@@ -20,7 +20,7 @@ body {
   }
 }
 
-.button { margin: base(); }
+.p-button { margin: base(); }
 
 section {
   &.labelled {
@@ -166,12 +166,12 @@ main + header {
   margin-top: base(12);
 }
 
-section.collapse {
+section.p-collapse {
   padding-top: $base;
   padding-bottom: $base;
 }
 
-article.collapse {
+article.p-collapse {
   border-top: 1px solid colors(gray, light);
 
   .collapse-title {
@@ -183,12 +183,12 @@ article.collapse {
   }
 }
 
-.modal-container, .popup-container {
+.p-modal-container, .p-popup-container {
   padding: base(6);
   background-color: colors(background, light);
 }
 
-.documentation.collapse {
+.documentation.p-collapse {
   border-top: none;
 }
 
