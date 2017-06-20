@@ -21,20 +21,20 @@
         <p>A paragraph with some <i>italics</i> and <b>bold</b> text.</p>
       </section>
       <section class="labelled" data-type="buttons">
-        <div class="input-group">
+        <div class="p-input-group">
           <a class="p-button">a.button</a>
           <button class="p-button">normal</button>
           <button disabled class="p-button">normal disabled</button>
         </div>
-        <div class="input-group">
+        <div class="p-input-group">
           <button class="p-button is-primary">filled</button>
           <button disabled class="p-button is-primary">filled disabled</button>
         </div>
-        <div class="input-group">
+        <div class="p-input-group">
           <button class="p-button is-link">link style</button>
           <button disabled class="p-button is-link">link style disabled</button>
         </div>
-        <div class="input-group">
+        <div class="p-input-group">
           <button class="p-button is-primary p-loading">loading</button>
           <button class="p-button p-loading">loading</button>
         </div>
