@@ -111,18 +111,24 @@ section {
     color: colors(light);
   }
 
+  * {
+    pointer-events: none;
+  }
+
   p.hex { 
     opacity: 0.6;
     align-self: flex-end;
     font-size: base(2);
-    @include mobile { align-self: center; margin-bottom: 0; }
+
+    @include mobile { 
+      align-self: center;
+      margin-bottom: 0;
+    }
   }
 
   & ~ & {
     margin-top: 0;
   }
-
-
 
   &:hover .flasher {
     transform: translateY(0);
@@ -140,7 +146,6 @@ section {
     top: 0;
     opacity: 0.8;
     transform: translateY(-100%);
-    pointer-events: none;
 
     @include mobile {
       display: none;

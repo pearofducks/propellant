@@ -29,13 +29,14 @@ export default {
     innerModel() {
       return this.model
     },
-    noLabel() {
-      return this.label === undefined
+    hasLabel() {
+      return this.label !== undefined
     }
   },
   methods: {
     generateID() {
       if (this.uid) return this.uid
+      if (this.label === undefined) return ""
       return Math.random().toString(16).slice(2) + Date.now()
     },
     onChange(e) { this.$emit('update:model', this.stateFromEvent(e) ) }
