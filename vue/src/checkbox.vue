@@ -19,7 +19,15 @@ export default {
       type: String,
       default: '',
       note: "a label to be appended after the checkbox"
+    },
+    indeterminate: {
+      type: Boolean,
+      default: false,
+      note: "whether the checkbox should initially be indeterminate"
     }
+  },
+  mounted() {
+    if (this.indeterminate) this.$el.querySelector('input').indeterminate = true
   },
   methods: {
     stateFromEvent(e) { return e.target.checked }

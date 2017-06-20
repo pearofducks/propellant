@@ -71,6 +71,7 @@
         <p-switchbox :model.sync="toggleModel" :labels="['bar', 'foo']"/>
         <p-switchbox disabled :model.sync="toggleModel" :labels="['bar', 'foo']"/>
         <p-checkbox :model.sync="toggleModel" label="foo"/>
+        <p-checkbox :model.sync="toggleModel" indeterminate label="foo - indeterminate"/>
         <p-checkbox disabled :model.sync="toggleModel" label="foo"/>
         <pre><code>model = {{ JSON.stringify(toggleModel)}}</code></pre>
       </section>

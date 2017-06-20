@@ -115,5 +115,11 @@ label.p-checkbox {
       border-right: 0.2rem solid colors(primary);
       border-bottom: 0.2rem solid colors(primary);
     }
+
+    &:indeterminate + .p-check-lever:before {
+      content: " - ";
+      font-weight: 700;
+      text-align: center;
+    }
   }
 }
