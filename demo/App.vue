@@ -132,7 +132,7 @@
       <section class="labelled" data-type="dialog">
         <button @click="showdialog" class="p-button">show a dialog</button>
         <p-popup title="Example dialog" ref="demoDialog">
-          <button @click="clicky" class="button">wat</button>
+          <button @click="clicky" class="p-button">wat</button>
         </p-popup>
       </section>
       <section class="labelled" data-type="sectionbar">
