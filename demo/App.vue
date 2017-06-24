@@ -35,8 +35,8 @@
           <button disabled class="p-button is-link">link style disabled</button>
         </div>
         <div class="p-input-group">
-          <button class="p-button is-primary p-loading">loading</button>
-          <button class="p-button p-loading">loading</button>
+          <button class="p-button is-primary is-loading">loading</button>
+          <button class="p-button is-loading">loading</button>
         </div>
       </section>
       <section class="labelled" data-type="inputs">
