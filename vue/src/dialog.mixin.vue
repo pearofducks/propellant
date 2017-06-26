@@ -14,12 +14,12 @@ export default {
     show() {
       this.visible = true
       document.body.classList.add(this.bodyClassName)
-      if (emitEvents) this.shown()
+      if (this.emitEvents) this.shown()
     },
     hide() {
       this.visible = false
       document.body.classList.remove(this.bodyClassName)
-      if (emitEvents) this.hidden()
+      if (this.emitEvents) this.hidden()
     },
     shown() {
       if (!this.$el.querySelector(this.showingSelector)) {
