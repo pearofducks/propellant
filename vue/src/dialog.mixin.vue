@@ -8,30 +8,43 @@ export default {
     }
   },
   data() {
-    return { visible: false }
+    return {
+      visible: false,
+      didEmit: false
+    }
   },
   methods: {
     show() {
       this.visible = true
       document.body.classList.add(this.bodyClassName)
-      if (this.emitEvents) this.shown()
+      if (this.emitEvents) {
+        this.didEmit = false
+        this.shown()
+      }
     },
     hide() {
       this.visible = false
       document.body.classList.remove(this.bodyClassName)
-      if (this.emitEvents) this.hidden()
+      if (this.emitEvents) {
+        this.didEmit = false
+        this.hidden()
+      }
     },
     shown() {
-      if (!this.$el.querySelector(this.showingSelector)) {
+      if (!this.$el.querySelector) {
         window.requestAnimationFrame(this.shown)
-      } else {
+      } 
+      else if (!this.didEmit) {
+        this.didEmit = true
         this.$emit('shown')
       }
     },
     hidden() {
-      if (this.$el.querySelector(this.showingSelector)) {
+      if (this.$el.querySelector) {
         window.requestAnimationFrame(this.hidden)
-      } else {
+      } 
+      else if (!this.didEmit) {
+        this.didEmit = true
         this.$emit('hidden')
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p-toast/>
-    <p-modal ref="demo">
+    <p-modal @shown="shown" @hidden="hidden" ref="demo" emit-events>
       <modal-content></modal-content>
       <h1>I'm a modal!</h1>
     </p-modal>
@@ -191,7 +191,9 @@ export default {
     closetoast() { this.$toast.hide() },
     cleartoast() { this.$toast.hide(true) },
     clicky() { this.$toast.push({ msg:'<h3>You did a thing! I closed the dialog!</h3>', timeout: 1200, type: 'is-danger' }); this.$refs.demoDialog.hide() },
-    showdialog() { this.$refs.demoDialog.show() }
+    showdialog() { this.$refs.demoDialog.show() },
+    shown() { this.$toast.push({ msg: '<h3>Modal shown!' })},
+    hidden() { this.$toast.push({ msg: '<h3>Modal hidden!', type: 'is-danger' })}
   },
   data () {
     return {
