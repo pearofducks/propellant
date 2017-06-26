@@ -4,7 +4,7 @@
       <div class="p-popup-container">
         <div class="p-popup-titlebar">
           <h3>{{title}}</h3>
-          <span v-if="closeButton" class="close">X</span>
+          <span @click="hide" v-if="closeButton" class="close">X</span>
         </div>
         <slot></slot>
       </div>
@@ -20,8 +20,8 @@ export default {
   mixins: [ dialog ],
   data() {
     return {
-      visible: false,
-      bodyClassName: 'p-popup-showing'
+      bodyClassName: 'p-popup-showing',
+      showingSelector: '.p-popup-container'
     }
   },
   props: {
@@ -32,16 +32,6 @@ export default {
     closeButton: {
       type: Boolean,
       default: false
-    }
-  },
-  methods: {
-    show() {
-      this.visible = true
-      if (this.emitEvents) this.$emit('shown')
-    },
-    hide() {
-      this.visible = false
-      if (this.emitEvents) this.$emit('hidden')
     }
   }
 }

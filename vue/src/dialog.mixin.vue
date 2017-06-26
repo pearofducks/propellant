@@ -18,6 +18,20 @@ export default {
     hide() {
       this.visible = false
       document.body.classList.remove(this.bodyClassName)
+    },
+    shown() {
+      if (!this.$el.querySelector(this.showingSelector)) {
+        window.requestAnimationFrame(this.shown)
+      } else {
+        this.$emit('shown')
+      }
+    },
+    hidden() {
+      if (this.$el.querySelector(this.showingSelector)) {
+        window.requestAnimationFrame(this.hidden)
+      } else {
+        this.$emit('hidden')
+      }
     }
   }
 }

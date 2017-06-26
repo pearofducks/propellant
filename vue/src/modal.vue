@@ -33,7 +33,10 @@ export default {
     }
   },
   data() {
-    return { bodyClassName: 'p-modal-showing' }
+    return {
+      bodyClassName: 'p-modal-showing',
+      showingSelector: '.p-modal-container'
+    }
   },
   methods: {
     eventHide(e) {
