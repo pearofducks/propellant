@@ -1,5 +1,12 @@
 <script>
 export default {
+  props: {
+    emitEvents: {
+      type: Boolean,
+      default: false,
+      note: "whether or not the component should emit events when shown/hidden"
+    }
+  },
   data() {
     return { visible: false }
   },
