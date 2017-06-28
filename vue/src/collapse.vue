@@ -1,6 +1,6 @@
 <template>
   <article class="p-collapse">
-    <div class="p-collapse-title" @click="!hasPromptSlots && toggle()" :class="{ expanded: isExpanded, clickable: !hasPromptSlots }">
+    <div class="p-collapse-title" @click="!hasPromptSlots && toggle()" :class="{ 'expanded': isExpanded, 'p-clickable': !hasPromptSlots }">
       <slot name="title"></slot>
     </div>
     <div class="p-collapse-showmore p-clickable" v-if="hasPromptSlots" @click="toggle()">

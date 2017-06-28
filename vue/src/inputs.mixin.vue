@@ -1,7 +1,7 @@
 <script>
 export default {
   props: {
-    model: {
+    value: {
       required: true,
       note: "a model object the component should bind to"
     },
@@ -26,9 +26,6 @@ export default {
     }
   },
   computed: {
-    innerModel() {
-      return this.model
-    },
     hasLabel() {
       return this.label !== undefined
     }
@@ -39,7 +36,7 @@ export default {
       if (this.label === undefined) return ""
       return Math.random().toString(16).slice(2) + Date.now()
     },
-    onChange(e) { this.$emit('update:model', this.stateFromEvent(e) ) }
+    onChange(e) { this.$emit('input', this.stateFromEvent(e) ) }
   }
 }
 </script>
