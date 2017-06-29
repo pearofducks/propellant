@@ -40,33 +40,39 @@
         </div>
       </section>
       <section class="labelled" data-type="inputs">
-        <p-textarea v-model="inputModel" placeholder="a textarea" label="label for textarea" />
-        <p-textarea disabled v-model="inputModel" placeholder="a textarea" label="label for disabled textarea" />
-        <p-input v-model="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
-        <p-input disabled v-model="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
-        <pre><code>model = {{ JSON.stringify(inputModel)}}</code></pre>
+        <p-textarea :model.sync="inputModel" placeholder="a textarea" label="label for textarea" />
+        <p-textarea disabled :model.sync="inputModel" placeholder="a textarea" label="label for disabled textarea" />
+        <p-input :model.sync="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
+        <p-input disabled :model.sync="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
+        <pre><code>model (sync'd on-change, not on-keyup) = {{ JSON.stringify(inputModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="selects">
-        <p-select v-model="selectModel">
+        <p-select :model.sync="selectModel">
           <option disabled value="">Please select one</option>
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
         </p-select>
-        <p-select v-model="selectModel" disabled>
+        <p-select disabled :model.sync="selectModel">
           <option disabled value="">Please select one</option>
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
         </p-select>
         <pre><code>model = {{ JSON.stringify(selectModel)}}</code></pre>
+        <p-select multiple label="Please select multiple" :model.sync="multiselectModel">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </p-select>
+        <pre><code>model = {{ JSON.stringify(multiselectModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="toggles">
-        <p-switchbox v-model="toggleModel" :labels="['bar', 'foo']"/>
-        <p-switchbox v-model="toggleModel" :labels="['bar', 'foo']" disabled/>
-        <p-checkbox v-model="toggleModel" label="foo"/>
-        <p-checkbox v-model="toggleModel" label="foo" disabled/>
-        <p-checkbox v-model="toggleModel" indeterminate label="foo - indeterminate"/>
+        <p-switchbox :model.sync="toggleModel" :labels="['bar', 'foo']"/>
+        <p-switchbox disabled :model.sync="toggleModel" :labels="['bar', 'foo']"/>
+        <p-checkbox :model.sync="toggleModel" label="foo"/>
+        <p-checkbox :model.sync="toggleModel" indeterminate label="foo - indeterminate"/>
+        <p-checkbox disabled :model.sync="toggleModel" label="foo"/>
         <pre><code>model = {{ JSON.stringify(toggleModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="toast">
@@ -101,7 +107,7 @@
       </section>
       <section class="labelled" data-type="accordion">
         <p-collapse v-for="item in items" :key="item.key" ref="looped" ns="looped" :name="item.key">
-          <h2 slot="title">{{ item.value }}</h2>
+          <h2 slot="title"><button class="p-has-no-style">{{ item.value }}</button></h2>
           <div slot="content">
             <h3>More content</h3>
             <p>This is the rest of the content for element {{ item.key }}, including a list</p>
@@ -114,7 +120,7 @@
           </div>
         </p-collapse>
         <p-collapse :key="10" ns="looped" name="10">
-          <h2 slot="title">And this, from a manual entry</h2>
+          <h2 slot="title"><button class="p-has-no-style">And this, from a manual entry</button></h2>
           <div slot="content">
             <h3>Perhaps this content should be slightly longer</h3>
             <p>This is going to be the longest content of the series, perhaps with a lorum ipsum below</p>
@@ -194,6 +200,7 @@ export default {
       toggleModel: true,
       inputModel: '',
       selectModel: '',
+      multiselectModel: [],
       items: [
         { key: 'one', value: 'Hello there'},
         { key: 'two', value: 'This was generated'},
@@ -217,6 +224,10 @@ article.collapse
     transition: 0.3s
     &.expanded
        color: colors(primary)
+
+.modal-container, .popup-container
+  padding: 2.4rem
+  background-color: colors(background, light)
 
 .documentation.collapse
   border-top: none

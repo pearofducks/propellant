@@ -1,7 +1,7 @@
 <template>
   <div class="p-input-group has-switchbox">
     <label :class="{ 'focus': focused, 'disabled': disabled }" class="p-switchbox">
-      <input :disabled="disabled" @focus="focused = true" @focusout="focused = false" type="checkbox" :checked="value" @change="onChange">
+      <input :disabled="disabled" @focus="focused = true" @focusout="focused = false" type="checkbox" v-model="innerModel" @change="onChange">
         {{ leftLabel }}
       <span class="p-switch-lever"></span>
         {{ rightLabel }}

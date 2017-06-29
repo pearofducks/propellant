@@ -2,7 +2,7 @@
   <div class="p-input-group has-input" :class="validationClass">
     <label v-if="hasLabel" :for="id" class="p-input-label">{{ label }}</label>
     <div class="p-input-wrapper" :class="{ 'has-validation-icon': validationIcon !== '', 'has-hint': validationMsg }">
-      <input :id="id" :disabled="disabled" class="p-input" :value="value" @input="validateAndChange" type="text" :placeholder="placeholder" />
+      <input :id="id" :disabled="disabled" class="p-input" v-model="innerModel" @change="validateAndChange" type="text" :placeholder="placeholder" />
       <div class="p-input-validation-icon">
         <svg v-if="validationIcon === 'alert'" class="p-input-icon" xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"/>
