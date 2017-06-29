@@ -37,7 +37,7 @@ export default {
     generateID() {
       if (this.uid) return this.uid
       if (this.label === undefined) return ""
-      return Math.random().toString(16).slice(2) + Date.now()
+      return "p" + Math.random().toString(16).slice(2) + Date.now()
     },
     onChange(e) { this.$emit('input', this.stateFromEvent(e) ) }
   }
