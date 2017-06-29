@@ -40,27 +40,31 @@
         </div>
       </section>
       <section class="labelled" data-type="inputs">
-        <p-textarea :model.sync="inputModel" placeholder="a textarea" label="label for textarea" />
-        <p-textarea disabled :model.sync="inputModel" placeholder="a textarea" label="label for disabled textarea" />
-        <p-input :model.sync="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
-        <p-input disabled :model.sync="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
+        <p-textarea v-model="inputModel" placeholder="a textarea" label="label for textarea" />
+        <p-textarea disabled v-model="inputModel" placeholder="a textarea" label="label for disabled textarea" />
+        <p-input v-model="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
+        <p-input disabled v-model="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
         <pre><code>model (sync'd on-change, not on-keyup) = {{ JSON.stringify(inputModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="selects">
-        <p-select :model.sync="selectModel">
+        <p-select v-model="selectModelToo" label="async options">
+          <option disabled value="">Please select one</option>
+          <option v-for="i in selectData" :value="i.id">{{ i.name }}</option>
+        </p-select>
+        <p-select v-model="selectModel" label="sync options">
           <option disabled value="">Please select one</option>
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
         </p-select>
-        <p-select disabled :model.sync="selectModel">
+        <p-select disabled v-model="selectModel">
           <option disabled value="">Please select one</option>
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
         </p-select>
         <pre><code>model = {{ JSON.stringify(selectModel)}}</code></pre>
-        <p-select multiple label="Please select multiple" :model.sync="multiselectModel">
+        <p-select multiple label="Please select multiple" v-model="multiselectModel">
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
@@ -68,11 +72,11 @@
         <pre><code>model = {{ JSON.stringify(multiselectModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="toggles">
-        <p-switchbox :model.sync="toggleModel" :labels="['bar', 'foo']"/>
-        <p-switchbox disabled :model.sync="toggleModel" :labels="['bar', 'foo']"/>
-        <p-checkbox :model.sync="toggleModel" label="foo"/>
-        <p-checkbox :model.sync="toggleModel" indeterminate label="foo - indeterminate"/>
-        <p-checkbox disabled :model.sync="toggleModel" label="foo"/>
+        <p-switchbox v-model="toggleModel" :labels="['bar', 'foo']"/>
+        <p-switchbox disabled v-model="toggleModel" :labels="['bar', 'foo']"/>
+        <p-checkbox v-model="toggleModel" label="foo"/>
+        <p-checkbox v-model="toggleModel" indeterminate label="foo - indeterminate"/>
+        <p-checkbox disabled v-model="toggleModel" label="foo"/>
         <pre><code>model = {{ JSON.stringify(toggleModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="toast">
@@ -107,7 +111,7 @@
       </section>
       <section class="labelled" data-type="accordion">
         <p-collapse v-for="item in items" :key="item.key" ref="looped" ns="looped" :name="item.key">
-          <h2 slot="title"><button class="p-has-no-style">{{ item.value }}</button></h2>
+          <h2 slot="title">{{ item.value }}</h2>
           <div slot="content">
             <h3>More content</h3>
             <p>This is the rest of the content for element {{ item.key }}, including a list</p>
@@ -120,7 +124,7 @@
           </div>
         </p-collapse>
         <p-collapse :key="10" ns="looped" name="10">
-          <h2 slot="title"><button class="p-has-no-style">And this, from a manual entry</button></h2>
+          <h2 slot="title">And this, from a manual entry</h2>
           <div slot="content">
             <h3>Perhaps this content should be slightly longer</h3>
             <p>This is going to be the longest content of the series, perhaps with a lorum ipsum below</p>
@@ -166,11 +170,16 @@ import StyleGuide from './StyleGuide'
 import ModalContent from './ModalContent'
 import DemoHeader from './DemoHeader'
 
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 export default {
   name: 'app',
   components: { StyleGuide, ModalContent, DemoHeader, colorPalette },
   mounted() {
     this.$refs.looped[0].show()
+    sleep(500).then(() => this.populateSelect())
   },
   methods: {
     inputIsLong(value) {
@@ -193,13 +202,16 @@ export default {
     clicky() { this.$toast.push({ msg:'<h3>You did a thing! I closed the dialog!</h3>', timeout: 1200, type: 'is-danger' }); this.$refs.demoDialog.hide() },
     showdialog() { this.$refs.demoDialog.show() },
     shown() { this.$toast.push({ msg: '<h3>Modal shown!' })},
-    hidden() { this.$toast.push({ msg: '<h3>Modal hidden!', type: 'is-danger' })}
+    hidden() { this.$toast.push({ msg: '<h3>Modal hidden!', type: 'is-danger' })},
+    populateSelect() { this.selectData = [{ id: 1, name: 'one' }, { id: 2, name: 'two' }] }
   },
   data () {
     return {
       toggleModel: true,
       inputModel: '',
       selectModel: '',
+      selectModelToo: '',
+      selectData: [],
       multiselectModel: [],
       items: [
         { key: 'one', value: 'Hello there'},

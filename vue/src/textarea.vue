@@ -1,7 +1,7 @@
 <template>
   <div class="p-input-group has-textarea">
     <label :for="id" class="p-input-label">{{ label }}</label>
-    <textarea :id="id" :disabled="disabled" class="p-textarea" :placeholder="placeholder"v-model="innerModel" @change="onChange"> </textarea>
+    <textarea :id="id" :disabled="disabled" class="p-textarea" :placeholder="placeholder" v-model="innerModel" @input="onChange"> </textarea>
   </div>
 </template>
 
