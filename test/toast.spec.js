@@ -2,7 +2,7 @@
 import avoriaz, { mount } from 'avoriaz'
 import should from 'should'
 import sinon from 'sinon'
-import propellant, { pToast, events } from 'propellant'
+import propellant, { pToast, events } from 'prpllnt'
 
 avoriaz.use(propellant)
 

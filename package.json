@@ -25,10 +25,7 @@
   "babel": {
     "presets": [
       [
-        "env",
-        {
-          "modules": false
-        }
+        "env", { "modules": false }
       ]
     ]
   },
@@ -42,9 +39,9 @@
     "build:vue": "vue build index.js --prod --dist lib --lib propellant",
     "build:css": "vue build scss/main.js --prod --dist css --lib propellant",
     "build:demo": "cross-env NODE_ENV=production webpack --progress --hide-modules --display-optimization-bailout",
-    "test": "cross-env NODE_ENV=test mocha-webpack --opts .mocha-webpack.opts || true",
-    "mocha": "cross-env NODE_ENV=test mocha-webpack --opts .mocha-webpack.opts",
-    "test:watch": "cross-env NODE_ENV=test mocha-webpack --watch --opts .mocha-webpack.opts",
+    "test": "cross-env NODE_ENV=test mocha-webpack --opts .mocha-webpack.opts 'test/*.spec.js' || true",
+    "mocha": "cross-env NODE_ENV=test mocha-webpack --opts .mocha-webpack.opts 'test/*.spec.js'",
+    "test:watch": "cross-env NODE_ENV=test mocha-webpack --watch --opts .mocha-webpack.opts 'test/*.spec.js'",
     "lint": "standard --verbose",
     "lint:fix": "standard --fix",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --content-base ./demo --open --hot"
@@ -63,7 +60,7 @@
     "jsdom": "11.0.0",
     "jsdom-global": "3.0.2",
     "mocha": "^3.2.0",
-    "mocha-webpack": "^1.0.0-beta.1",
+    "mocha-webpack": "^0.7.0",
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.0",
     "should": "^11.2.1",

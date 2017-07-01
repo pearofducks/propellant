@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import propellant from 'propellant'
+import propellant from 'prpllnt'
 Vue.use(propellant)
 
 /* eslint no-new: 0 */

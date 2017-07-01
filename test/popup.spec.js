@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 0 */
 import { mount } from 'avoriaz'
 import should from 'should'
-import { pPopup } from 'propellant'
+import { pPopup } from 'prpllnt'
 
 describe('popup.vue', () => {
   it('defaults to being hidden', () => {

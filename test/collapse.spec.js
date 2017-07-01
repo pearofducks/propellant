@@ -1,11 +1,13 @@
 /* eslint no-unused-vars: 0 */
+import Vue from 'vue'
 import avoriaz, { mount } from 'avoriaz'
 import should from 'should'
 import sinon from 'sinon'
-import propellant, { events, pCollapse } from 'propellant'
+import propellant, { events, pCollapse } from 'prpllnt'
 import { compileToFunctions } from 'vue-template-compiler'
 
-avoriaz.use(propellant)
+Vue.use(propellant)
+global.window.requestAnimationFrame = () => true
 
 describe('collapse.vue', () => {
   const title = [compileToFunctions('<h1 class="test-title">test-title</h1>')]
@@ -21,7 +23,6 @@ describe('collapse.vue', () => {
     component.vm.isExpanded.should.be.true()
   })
 
-  // this will cause an error because anime.js wants a real browser - the test will pass/fail as normal
   it('can be expanded using show', () => {
     const component = mount(pCollapse, {
       propsData: { name: 'foo' }
@@ -30,7 +31,6 @@ describe('collapse.vue', () => {
     component.vm.isExpanded.should.be.true()
   })
 
-  // this will cause an error because anime.js wants a real browser - the test will pass/fail as normal
   it('can be collapsed using hide', () => {
     const component = mount(pCollapse, { propsData: { name: 'foo', expanded: true } })
     component.vm.hide()
@@ -45,10 +45,10 @@ describe('collapse.vue', () => {
     component.vm.isExpanded.should.be.false()
   })
 
-  it('renders a wrapper article with class collapse', () => {
+  it('renders a wrapper article with class p-collapse', () => {
     const component = mount(pCollapse, { propsData: { name: 'foo' } })
     component.is('article').should.be.true()
-    component.hasClass('collapse').should.be.true()
+    component.hasClass('p-collapse').should.be.true()
   })
 
   it('renders a header through slots', () => {

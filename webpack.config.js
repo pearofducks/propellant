@@ -33,7 +33,7 @@ module.exports = {
     extensions: ['.vue', '.js'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'propellant': path.join(__dirname, './')
+      'prpllnt': path.join(__dirname, './')
     }
   },
   devServer: {

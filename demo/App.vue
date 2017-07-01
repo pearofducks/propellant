@@ -224,8 +224,8 @@ export default {
 </script>
 
 <style lang="sass">
-@import '~propellant/propellant'
-@import '~propellant/scss/demo'
+@import '~prpllnt/propellant'
+@import '~prpllnt/scss/demo'
 
 section.collapse
   padding-top: 1.2rem

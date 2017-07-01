@@ -1,5 +1,5 @@
 import * as components from './vue/src'
-import { events, collapse, modal, toast, eventSetup } from './vue/events'
+import { collapse, modal, toast, eventSetup } from './vue/events'
 
 let propellant = components
 
@@ -21,4 +21,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default propellant
 export * from './vue/src'
-export { events }
+export * from './vue/events'
