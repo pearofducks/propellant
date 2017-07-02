@@ -47,7 +47,7 @@
         <pre><code>model = {{ JSON.stringify(inputModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="selects">
-        <p-select v-model="selectModelToo" label="async options">
+        <p-select v-model="selectModelToo" label="async options (not connected to model)">
           <option disabled value="">Please select one</option>
           <option v-for="i in selectData" :value="i.id">{{ i.name }}</option>
         </p-select>
