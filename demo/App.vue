@@ -44,7 +44,7 @@
         <p-textarea disabled v-model="inputModel" placeholder="a textarea" label="label for disabled textarea" />
         <p-input v-model="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
         <p-input disabled v-model="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
-        <pre><code>model (sync'd on-change, not on-keyup) = {{ JSON.stringify(inputModel)}}</code></pre>
+        <pre><code>model = {{ JSON.stringify(inputModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="selects">
         <p-select v-model="selectModelToo" label="async options">
