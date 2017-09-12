@@ -1,7 +1,7 @@
 {
   "name": "prpllnt",
   "description": "well-crafted Vue.js components",
-  "version": "0.7.22",
+  "version": "0.7.23",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "private": false,
   "main": "lib/index.js",
@@ -25,7 +25,10 @@
   "babel": {
     "presets": [
       [
-        "env", { "modules": false }
+        "env",
+        {
+          "modules": false
+        }
       ]
     ]
   },
