@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import inputs from './inputs.mixin'
+import inputs from './inputs.mixin.vue'
 
 function id() {
  return Math.random().toString(16).slice(2) + (new Date()).getTime()

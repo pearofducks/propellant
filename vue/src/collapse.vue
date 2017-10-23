@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {events} from '../events'
+import {events} from '../events.js'
 
 function easeInOutQuart( t ) {
   const t1 = t - 1;

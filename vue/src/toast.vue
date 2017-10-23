@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {events} from '../events'
+import {events} from '../events.js'
 
 const default_opts = {
   msg: "<h3>Salutations, I am a toast.</h3>",

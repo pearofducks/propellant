@@ -1,12 +1,12 @@
-import pCheckbox from './checkbox'
-import pCollapse from './collapse'
-import pInput from './input'
-import pModal from './modal'
-import pPopup from './popup'
-import pSectionbar from './sectionBar'
-import pSelect from './select'
-import pSwitchbox from './switchbox'
-import pToast from './toast'
+import pCheckbox from './checkbox.vue'
+import pCollapse from './collapse.vue'
+import pInput from './input.vue'
+import pModal from './modal.vue'
+import pPopup from './popup.vue'
+import pSectionbar from './sectionBar.vue'
+import pSelect from './select.vue'
+import pSwitchbox from './switchbox.vue'
+import pToast from './toast.vue'
 
 export {
   pCheckbox,
