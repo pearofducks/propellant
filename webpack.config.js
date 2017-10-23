@@ -21,7 +21,11 @@ module.exports = {
           }
         }
       },
-      { test: /\.css$/, loader: 'vue-style-loader!css-loader' },
+      {
+        test: /\.scss$/,
+        loader: 'vue-style-loader!css-loader!postcss-loader!sass-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader',

@@ -1,3 +1,5 @@
+@import '../propellant.scss';
+
 :root {
   @each $color in map-keys($palettes) {
     @each $color-type in map-keys(map-get($palettes, $color)) {
@@ -258,6 +260,32 @@ header.docs {
   line-height: base(4);
   margin-bottom: 0;
   margin-top: base(4);
+}
+
+section.collapse {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+article.collapse {
+  border-top: 1px solid colors(gray, light);
+
+  .collapse-title {
+    transition: 0.3s;
+
+    &.expanded {
+      color: colors(primary);
+    }
+  }
+}
+
+.modal-container, .popup-container {
+  padding: 2.4rem;
+  background-color: colors(background, light);
+}
+
+.documentation.collapse {
+  border-top: none;
 }
 
 @import "code-blocks";

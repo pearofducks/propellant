@@ -222,25 +222,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-@import '~prpllnt/propellant'
-@import '~prpllnt/scss/demo'
-
-section.collapse
-  padding-top: 1.2rem
-  padding-bottom: 1.2rem
-article.collapse
-  border-top: 1px solid colors(gray, light)
-  .collapse-title
-    transition: 0.3s
-    &.expanded
-       color: colors(primary)
-
-.modal-container, .popup-container
-  padding: 2.4rem
-  background-color: colors(background, light)
-
-.documentation.collapse
-  border-top: none
-</style>
