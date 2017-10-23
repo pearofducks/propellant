@@ -1,7 +1,7 @@
 {
   "name": "prpllnt",
   "description": "well-crafted Vue.js components",
-  "version": "0.7.24",
+  "version": "0.7.25",
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "private": false,
   "main": "lib/index.js",
