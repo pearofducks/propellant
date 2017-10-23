@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import inputs from './inputs.mixin'
+import inputs from './inputs.mixin.vue'
 
 const default_opts = {
   msg: '',

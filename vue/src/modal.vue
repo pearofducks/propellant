@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import { events } from '../events'
-import dialog from './dialog.mixin'
+import { events } from '../events.js'
+import dialog from './dialog.mixin.vue'
 
 export default {
   name: 'pModal',

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import inputs from './inputs.mixin'
+import inputs from './inputs.mixin.vue'
 export default {
   name: 'pTextarea',
   mixins: [ inputs ],

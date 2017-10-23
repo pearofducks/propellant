@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import dialog from './dialog.mixin'
+import dialog from './dialog.mixin.vue'
 
 export default {
   name: 'pPopup',
