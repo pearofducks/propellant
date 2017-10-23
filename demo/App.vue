@@ -166,9 +166,9 @@
 
 <script>
 import colorPalette from './ColorPalette.vue'
-import StyleGuide from './StyleGuide'
-import ModalContent from './ModalContent'
-import DemoHeader from './DemoHeader'
+import StyleGuide from './StyleGuide.vue'
+import ModalContent from './ModalContent.vue'
+import DemoHeader from './DemoHeader.vue'
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
