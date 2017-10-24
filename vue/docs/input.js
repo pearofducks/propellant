@@ -3,8 +3,8 @@ export default {
   description: `
   `,
   token: `
-  <p-input 
-        :model.sync="myModelString"
+  <p-input
+        v-model="myModelString"
         :validator="myValidatorFunction"
         placeholder="an input"
         label="label for an input"/>`
