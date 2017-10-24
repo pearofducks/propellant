@@ -26,8 +26,9 @@ export default {
     }
   },
   computed: {
-    innerModel() {
-      return this.value
+    innerModel: {
+      get() { return this.value },
+      set(val) { this.$emit('input', val) }
     },
     hasLabel() {
       return this.label !== undefined

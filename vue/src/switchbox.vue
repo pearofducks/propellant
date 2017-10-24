@@ -1,7 +1,7 @@
 <template>
   <div class="p-input-group has-switchbox">
     <label :class="{ 'focus': focused, 'disabled': disabled }" class="p-switchbox">
-      <input :disabled="disabled" @focus="focused = true" @focusout="focused = false" type="checkbox" v-model="model" @change="$emit('change', $event)">
+      <input :disabled="disabled" @focus="focused = true" @focusout="focused = false" type="checkbox" v-model="innerModel" @change="onChange">
         {{ leftLabel }}
       <span class="p-switch-lever"></span>
         {{ rightLabel }}
@@ -26,10 +26,6 @@ export default {
     stateFromEvent(e) { return e.target.checked }
   },
   computed: {
-    model: {
-      get() { return this.value },
-      set(val) { this.$emit('input', val) }
-    },
     leftLabel() { return this.labels[0] ? this.labels[0] : "" },
     rightLabel() { return this.labels[1] ? this.labels[1] : "" }
   }
