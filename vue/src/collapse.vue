@@ -8,7 +8,7 @@
       <slot v-else name="showmore"></slot>
     </div>
     <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
-      <div class="p-collapse-content" v-if="isExpanded">
+      <div class="p-collapse-content" v-show="isExpanded">
         <slot name="content"></slot>
       </div>
     </transition>
