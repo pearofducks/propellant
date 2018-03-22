@@ -1,5 +1,5 @@
 // Tables
-.table {
+.p-table {
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
@@ -15,7 +15,7 @@
     padding: 1.4rem 1rem;
   }
 
-  &.table-striped {
+  &.is-striped {
     tbody {
       tr:nth-of-type(odd) {
         background: colors(background, light);
@@ -23,13 +23,13 @@
     }
   }
 
-  &.table-hover tbody tr {
+  &.has-hover tbody tr {
     &:hover {
       background: colors(background, dark);
     }
   }
 
-  &, &.table-striped {
+  &, &.is-striped {
     tbody {
       tr {
         &.active {

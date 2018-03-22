@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p-toast/>
-    <p-modal ref="demo">
+    <p-modal @shown="shown" @hidden="hidden" ref="demo" emit-events>
       <modal-content></modal-content>
       <h1>I'm a modal!</h1>
     </p-modal>
@@ -10,48 +10,88 @@
       <button @click="showdialog" class="button">show a dialog</button>
     </p-modal>
     <DemoHeader v-once/>
-    <StyleGuide/>
     <main>
+      <color-palette></color-palette>
+      <section class="labelled" data-type="type">
+        <h1 class="header">Header level 1</h1>
+        <h2 class="header">Header level 2</h2>
+        <h3 class="header">Header level 3</h3>
+        <h4 class="header">Header level 4</h4>
+        <h5 class="header">Header level 5</h5>
+        <p>A paragraph with some <i>italics</i> and <b>bold</b> text.</p>
+      </section>
+      <section class="labelled" data-type="buttons">
+        <div class="p-input-group">
+          <a class="p-button">a.button</a>
+          <button class="p-button">normal</button>
+          <button disabled class="p-button">normal disabled</button>
+        </div>
+        <div class="p-input-group">
+          <button class="p-button is-primary">filled</button>
+          <button disabled class="p-button is-primary">filled disabled</button>
+        </div>
+        <div class="p-input-group">
+          <button class="p-button is-link">link style</button>
+          <button disabled class="p-button is-link">link style disabled</button>
+        </div>
+        <div class="p-input-group">
+          <button class="p-button is-primary is-loading">loading</button>
+          <button class="p-button is-loading">loading</button>
+        </div>
+      </section>
       <section class="labelled" data-type="inputs">
-        <p-input :model.sync="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
-        <p-input disabled :model.sync="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
-        <pre><code>model (sync'd on-change, not on-keyup) = {{ JSON.stringify(inputModel)}}</code></pre>
+        <p-textarea v-model="inputModel" placeholder="a textarea" label="label for textarea" />
+        <p-textarea disabled v-model="inputModel" placeholder="a textarea" label="label for disabled textarea" />
+        <p-input v-model="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
+        <p-input disabled v-model="inputModel" :validator="inputIsLong" placeholder="an input" label="label for an input"/>
+        <pre><code>model = {{ JSON.stringify(inputModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="selects">
-        <p-select :model.sync="selectModel">
+        <p-select v-model="selectModelToo" label="async options (not connected to model)">
+          <option disabled value="">Please select one</option>
+          <option v-for="i in selectData" :value="i.id">{{ i.name }}</option>
+        </p-select>
+        <p-select v-model="selectModel" label="sync options">
           <option disabled value="">Please select one</option>
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
         </p-select>
-        <p-select disabled :model.sync="selectModel">
+        <p-select disabled v-model="selectModel">
           <option disabled value="">Please select one</option>
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
         </p-select>
         <pre><code>model = {{ JSON.stringify(selectModel)}}</code></pre>
+        <p-select multiple label="Please select multiple" v-model="multiselectModel">
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </p-select>
+        <pre><code>model = {{ JSON.stringify(multiselectModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="toggles">
-        <p-switchbox :model.sync="toggleModel" :labels="['bar', 'foo']"/>
-        <p-switchbox disabled :model.sync="toggleModel" :labels="['bar', 'foo']"/>
-        <p-checkbox :model.sync="toggleModel" label="foo"/>
-        <p-checkbox disabled :model.sync="toggleModel" label="foo"/>
+        <p-switchbox v-model="toggleModel" :labels="['bar', 'foo']"/>
+        <p-switchbox disabled v-model="toggleModel" :labels="['bar', 'foo']"/>
+        <p-checkbox v-model="toggleModel" label="foo"/>
+        <p-checkbox v-model="toggleModel" indeterminate label="foo - indeterminate"/>
+        <p-checkbox disabled v-model="toggleModel" label="foo"/>
         <pre><code>model = {{ JSON.stringify(toggleModel)}}</code></pre>
       </section>
       <section class="labelled" data-type="toast">
-        <button class="button" @click="showtoast">open a toast</button>
-        <button class="button" @click="forcetoast">force a toast - no timer</button>
-        <button class="button" @click="forcetoast2">force a second toast - no timer</button>
-        <button class="button" @click="forcetoast3">force a third toast - with timer</button>
-        <button class="button" @click="closetoast">close a single toast</button>
-        <button class="button" @click="cleartoast">clear all toasts</button>
+        <button class="p-button" @click="showtoast">open a toast</button>
+        <button class="p-button" @click="forcetoast">force a toast - no timer</button>
+        <button class="p-button" @click="forcetoast2">force a second toast - no timer</button>
+        <button class="p-button" @click="forcetoast3">force a third toast - with timer</button>
+        <button class="p-button" @click="closetoast">close a single toast</button>
+        <button class="p-button" @click="cleartoast">clear all toasts</button>
       </section>
       <section class="labelled" data-type="modal">
-        <button class="button" @click="showModal('demo')">open a modal</button>
-        <button class="button" @click="showRemote">open a remote modal</button>
+        <button class="p-button" @click="showModal('demo')">open a modal</button>
+        <button class="p-button" @click="showRemote">open a remote modal</button>
       </section>
-      <section class="collapse labelled" data-type="collapse">
+      <section style="padding-top: 1.2rem; padding-bottom: 1.2rem;" class="labelled" data-type="collapse">
         <p-collapse name="demo-first">
           <h2 slot="title">I expand when clicked!</h2>
           <div slot="content">
@@ -71,7 +111,7 @@
       </section>
       <section class="labelled" data-type="accordion">
         <p-collapse v-for="item in items" :key="item.key" ref="looped" ns="looped" :name="item.key">
-          <h2 slot="title"><button class="button-null">{{ item.value }}</button></h2>
+          <h2 slot="title">{{ item.value }}</h2>
           <div slot="content">
             <h3>More content</h3>
             <p>This is the rest of the content for element {{ item.key }}, including a list</p>
@@ -95,29 +135,28 @@
         </p-collapse>
       </section>
       <section class="labelled" data-type="dialog">
-        <button @click="showdialog" class="button">show a dialog</button>
+        <button @click="showdialog" class="p-button">show a dialog</button>
         <p-popup title="Example dialog" ref="demoDialog">
-          <button @click="clicky" class="button">wat</button>
+          <button @click="clicky" class="p-button">wat</button>
         </p-popup>
       </section>
       <section class="labelled" data-type="sectionbar">
-        <p-sectionbar color-bar="primary-color" callout="hotdog">
+        <p-sectionbar color-bar="is-primary" callout="hotdog">
           <h4 style="margin-bottom: 6px">This is a sectionbar</h4>
           <p style="margin-bottom: 0;">This is a subtitle for the sectionbar</p>
         </p-sectionbar>
-        <p-sectionbar color-bar="danger-color" callout="chevron">
-          <h3 style="margin: 0;">Please secure your account by verifying your email</h3>
+        <p-sectionbar color-bar="is-danger" callout="chevron">
+          <h5 style="margin: 0;">Please secure your account by verifying your email</h5>
         </p-sectionbar>
         <p-sectionbar callout="hamburger">
-          <h2 style="margin-bottom: 6px">A rather plain sectionbar</h2>
+          <h4 style="margin-bottom: 6px">A rather plain sectionbar</h4>
           <p style="margin-bottom: 0;">With some more additional text to describe it. This sectionbar has a callout but no color bar.</p>
         </p-sectionbar>
-        <p-sectionbar color-bar="success-color" icon="/quackIcon.svg">
-          <h3 style="margin-bottom: 6px">A sectionbar with an icon, but no callout</h3>
-          <h5 style="margin-bottom: 6px;">Any content can be in this area, not just subtitles</h5>
-          <p style="margin-bottom: 0px;">Click here to go to an entirely new section of the app, that's probably why this is called a section bar. We're really clever when we come up with names for things</p>
+        <p-sectionbar color-bar="is-success" icon="/quackIcon.svg">
+          <h5 style="margin-bottom: 6px">A sectionbar with an icon, but no callout</h5>
+          <p style="margin-bottom: 0px;">Additional helper text and stuff</p>
         </p-sectionbar>
-        <p-sectionbar color-bar="warning-color" icon="/quackIcon.svg" callout="plus">
+        <p-sectionbar color-bar="is-warning" icon="/quackIcon.svg" callout="plus">
           <p style="margin-bottom: 0px;">Another section with all the things!</p>
         </p-sectionbar>
       </section>
@@ -126,35 +165,54 @@
 </template>
 
 <script>
-import StyleGuide from './StyleGuide'
-import ModalContent from './ModalContent'
-import DemoHeader from './DemoHeader'
+import colorPalette from './ColorPalette.vue'
+import StyleGuide from './StyleGuide.vue'
+import ModalContent from './ModalContent.vue'
+import DemoHeader from './DemoHeader.vue'
+
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 export default {
   name: 'app',
-  components: { StyleGuide, ModalContent, DemoHeader },
+  components: { StyleGuide, ModalContent, DemoHeader, colorPalette },
   mounted() {
     this.$refs.looped[0].show()
+    sleep(500).then(() => this.populateSelect())
   },
   methods: {
-    inputIsLong(value) { if (value.length > 5) return { msg: 'that input is long', class: 'success', icon: 'success' } },
+    inputIsLong(value) {
+      if (value.length > 5) {
+        return { msg: 'that input is long', class: 'success', icon: 'success' }
+      }
+      else {
+        return { msg: 'input is not long enough', class: 'warning', icon: 'alert'}
+      }
+    },
     showModal(ref) { this.$refs[ref].show() },
     hideModal(ref) { this.$refs[ref].hide() },
     showRemote() { this.$modal.show("remote") },
     showtoast() { this.$toast.push({ msg:'<h3>Hello I demonstrate toasts</h3>' }) },
-    forcetoast() { this.$toast.push({ msg:'<div style="display: flex;"><span class="button button-primary loading" style="border: none; padding: 0; width: 1.2rem; box-shadow: none;"></span><h3 style="margin-left: 2.4rem">Hello I am important and loading something</h3></div>', timeout: 0 }, true) },
-    forcetoast2() { this.$toast.push({ msg:'<h3>Hello I am also important</h3>', timeout: 0, type: 'danger light' }, true) },
-    forcetoast3() { this.$toast.push({ msg:'<h3>I am the most importantest</h3>', timeout: 3600, type: 'success light' }, true) },
+    forcetoast() { this.$toast.push({ msg:'<div style="display: flex;"><span class="p-button is-primary is-loading" style="border: none; padding: 0; width: 1.2rem; box-shadow: none;"></span><h3 style="margin-left: 2.4rem">Hello I am important and loading something</h3></div>', timeout: 0 }, true) },
+    forcetoast2() { this.$toast.push({ msg:'<h3>Hello I am also important</h3>', timeout: 0, type: 'is-danger is-light' }, true) },
+    forcetoast3() { this.$toast.push({ msg:'<h3>I am the most importantest</h3>', timeout: 3600, type: 'is-success is-light' }, true) },
     closetoast() { this.$toast.hide() },
     cleartoast() { this.$toast.hide(true) },
-    clicky() { this.$toast.push({ msg:'<h3>You did a thing! I closed the dialog!</h3>', timeout: 1200, type: 'danger' }); this.$refs.demoDialog.hide() },
-    showdialog() { this.$refs.demoDialog.show() }
+    clicky() { this.$toast.push({ msg:'<h3>You did a thing! I closed the dialog!</h3>', timeout: 1200, type: 'is-danger' }); this.$refs.demoDialog.hide() },
+    showdialog() { this.$refs.demoDialog.show() },
+    shown() { this.$toast.push({ msg: '<h3>Modal shown!' })},
+    hidden() { this.$toast.push({ msg: '<h3>Modal hidden!', type: 'is-danger' })},
+    populateSelect() { this.selectData = [{ id: 1, name: 'one' }, { id: 2, name: 'two' }] }
   },
   data () {
     return {
       toggleModel: true,
       inputModel: '',
       selectModel: '',
+      selectModelToo: '',
+      selectData: [],
+      multiselectModel: [],
       items: [
         { key: 'one', value: 'Hello there'},
         { key: 'two', value: 'This was generated'},
@@ -164,25 +222,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-@import '~propellant/propellant'
-@import '~propellant/scss/demo'
-
-section.collapse
-  padding-top: 1.2rem
-  padding-bottom: 1.2rem
-article.collapse
-  border-top: 1px solid colors(gray, light)
-  .collapse-title
-    transition: 0.3s
-    &.expanded
-       color: colors(primary)
-
-.modal-container, .popup-container
-  padding: 2.4rem
-  background-color: colors(background, light)
-
-.documentation.collapse
-  border-top: none
-</style>

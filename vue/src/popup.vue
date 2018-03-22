@@ -1,10 +1,10 @@
 <template>
-  <transition name="fade-in">
-    <aside class="popup-backdrop" v-if="visible">
-      <div class="popup-container">
-        <div class="popup-titlebar">
+  <transition name="p-fade-in">
+    <aside class="p-popup-backdrop" v-if="visible">
+      <div class="p-popup-container">
+        <div class="p-popup-titlebar">
           <h3>{{title}}</h3>
-          <span v-if="closeButton" class="close">X</span>
+          <span @click="hide" v-if="closeButton" class="close">X</span>
         </div>
         <slot></slot>
       </div>
@@ -20,8 +20,8 @@ export default {
   mixins: [ dialog ],
   data() {
     return {
-      visible: false,
-      bodyClassName: 'popup-showing'
+      bodyClassName: 'p-popup-showing',
+      showingSelector: '.p-popup-container'
     }
   },
   props: {
@@ -33,10 +33,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  methods: {
-    show() { this.visible = true },
-    hide() { this.visible = false }
   }
 }
 </script>

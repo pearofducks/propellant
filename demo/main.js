@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App'
-import propellant from 'propellant'
+import propellant from 'prpllnt'
+import 'prpllnt/scss/demo.scss'
+
 Vue.use(propellant)
 
 /* eslint no-new: 0 */

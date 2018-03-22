@@ -1,4 +1,4 @@
-label.switch, label.checkbox {
+label.p-switchbox, label.p-checkbox {
   position: relative;
   user-select: none;
   font-size: $font-size * 0.9;
@@ -27,9 +27,9 @@ label.switch, label.checkbox {
   }
 }
 
-label.switch {
+label.p-switchbox {
   // state: checked
-  input[type=checkbox]:checked + .lever {
+  input[type=checkbox]:checked + .p-switch-lever {
     background-color: colors(primary);
 
     &:after {
@@ -38,7 +38,7 @@ label.switch {
   }
 
   // switch slot
-  .lever {
+  .p-switch-lever {
     content: "";
     display: inline-flex;
     align-items: center;
@@ -65,10 +65,10 @@ label.switch {
   }
 }
 
-label.checkbox {
+label.p-checkbox {
   padding-left: 3.6rem;
 
-  .lever:before, .lever:after {
+  .p-check-lever:before, .p-check-lever:after {
     content: "";
     position: absolute;
     top: 0;
@@ -82,14 +82,14 @@ label.checkbox {
     transition: 0.2s ease;
   }
 
-  .lever:after {
+  .p-check-lever:after {
     border: 0;
     transform: scale(0);
   }
 
   [type="checkbox"] {
     // state: checked
-    &:checked + .lever:before {
+    &:checked + .p-check-lever:before {
       top: -0.4rem;
       left: -0.4rem;
       width: 1.4rem;
@@ -105,15 +105,21 @@ label.checkbox {
     }
 
     // state: disabled + unchecked
-    &:not(:checked):disabled + .lever:before {
+    &:not(:checked):disabled + .p-check-lever:before {
       border: none;
       background-color: colors(gray, dark);
     }
 
     // state: disabled + checked
-    &:disabled + .lever:before {
+    &:disabled + .p-check-lever:before {
       border-right: 0.2rem solid colors(primary);
       border-bottom: 0.2rem solid colors(primary);
+    }
+
+    &:indeterminate + .p-check-lever:before {
+      content: " - ";
+      font-weight: 700;
+      text-align: center;
     }
   }
 }

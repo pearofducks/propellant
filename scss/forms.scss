@@ -1,36 +1,36 @@
-.input-group {
+.p-input-group {
   &:not(:last-child) {
-    margin-bottom: $layout-padding;
+    margin-bottom: base(5);
   }
 }
 
-.input-label, .input-hint {
+.p-input-label, .p-input-hint {
   display: block;
-  padding: 0.6rem 0;
+  padding: base() 0;
   user-select: none;
   font-weight: 500;
+  font-size: base(3);
 }
 
-.input-wrapper {
+.p-input-wrapper {
   position: relative;
-  margin-top: 0.6rem;
 }
 
-.input-validation-icon {
+.p-input-validation-icon {
   position: absolute;
   top: 0;
   right: 0;
-  height: 2rem;
-  margin: 1.2rem;
+  height: base(5);
+  margin: base(3);
 
   @each $name in $ui-colors {
-    .#{$name} & .icon {
+    .#{$name} & .p-input-icon {
       stroke: colors($name);
     }
   }
 }
 
-.input-hint {
+.p-input-hint {
   color: colors(gray);
 
   @each $name in $ui-colors {
@@ -40,8 +40,8 @@
   }
 }
 
-.input, .select, .textarea {
-  @include is-control;
+.p-input, .p-select, .p-textarea {
+  @include p-controls;
 
   background-color: colors(light);
   min-width: $input-min-width;
@@ -70,43 +70,55 @@
   }
 }
 
-.input, .textarea {
+.p-input, .p-textarea {
   width: 100%;
   max-width: 100%;
 }
 
-.input-wrapper {
-  &.has-validation-icon .input {
-    padding-right: 4rem;
+.p-input-wrapper {
+  &.has-validation-icon .p-input {
+    padding-right: base(10);
   }
 }
 
-.textarea {
+.p-textarea {
   display: block;
   resize: vertical;
-  min-height: 6rem;
+  min-height: base(15);
 }
 
-.select-wrapper {
+.p-select-wrapper {
   display: inline-flex;
   position: relative;
   align-items: center;
 
   select {
-    padding-right: 2.4rem;
+    padding-right: base(10);
   }
 
   &:after {
     @include arrow($border-color-dark);
 
     z-index: 4;
-    right: 1.2rem;
-    top: 1.6rem;
+    right: base(3);
+    top: base(4);
     margin-top: -0.25rem;
+  }
+
+  &.multiple {
+    display: flex;
+
+    select {
+      padding-right: base(2);
+    }
+
+    &:after {
+      content: none;
+    }
   }
 }
 
-.select {
+.p-select {
   cursor: pointer;
   border-width: 0;
   box-shadow: 1px 1px 1px $border-color;

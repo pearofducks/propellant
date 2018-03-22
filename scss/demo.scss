@@ -1,3 +1,5 @@
+@import '../propellant.scss';
+
 :root {
   @each $color in map-keys($palettes) {
     @each $color-type in map-keys(map-get($palettes, $color)) {
@@ -11,21 +13,22 @@ html {
 }
 
 body {
-  margin: 7.2rem 9.6rem;
+  margin: base(18) base(24);
   margin-top: 0;
-  background-color: colors(background, light);
   transition: 0.3s;
 
   @include mobile {
-    margin: 1.2rem;
+    margin: base(4);
   }
 }
 
+.p-button { margin: base(); }
+
 section {
   &.labelled {
-    margin: 9.6rem 0;
+    margin: base(24) 0;
     position: relative;
-    padding-left: 3.6rem;
+    padding-left: base(9);
     border-left: 0.1rem solid colors(gray, light);
 
     @include mobile {
@@ -38,12 +41,12 @@ section {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       color: colors(gray);
-      font-size: 1.4rem;
+      font-size: base(3);
       font-weight: 400;
       font-family: "Source Serif Pro", serif;
       display: inline-block;
       position: absolute;
-      left: -2.4rem;
+      left: - base(6);
       top: 0.2rem;
 
       @include mobile {
@@ -51,8 +54,8 @@ section {
         writing-mode: initial;
         transform: none;
         left: 0;
-        top: -2.4rem;
-        font-size: 1rem;
+        top: - base(6);
+        font-size: base(2);
       }
     }
   }
@@ -61,39 +64,17 @@ section {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: 2.4rem 0;
-
-    &:last-child {
-      padding-bottom: 2.4rem;
-    }
   }
-}
-
-main {
-  margin: 1.2rem;
-  margin-left: 0;
-
-  @include mobile {
-    margin: 0;
-  }
-}
-
-main section.labelled:first-child {
-  margin-top: 1.2rem;
-}
-
-main section.l {
-  @include mobile;
 }
 
 .color {
   background-color: white;
-  width: 14rem;
-  box-shadow: 0 2px 0 $border-color;
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
-  margin-right: 2.4rem;
-  border-radius: 0.325rem;
+  width: base(35);
+  box-shadow: 0 0.2rem 0 $border-color;
+  margin-top: base(3);
+  margin-bottom: base(3);
+  margin-right: base(6);
+  border-radius: base();
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,40 +85,52 @@ main section.l {
   }
 
   @include mobile {
-    width: 9rem;
+    width: base(22);
   }
 }
 
-article.swatch {
-  height: 9rem;
+.swatch {
+  height: base(22);
   width: auto;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  margin: 1.2rem;
+  margin: base(2);
   display: flex;
   justify-content: center;
+
+  @include mobile {
+    cursor: default;
+    height: base(12);
+    margin: 0;
+    &:first-child {
+      border-top-left-radius: base();
+      border-top-right-radius: base();
+    }
+  }
 
   &.is-dark { 
     color: colors(light);
   }
 
+  * {
+    pointer-events: none;
+  }
+
   p.hex { 
     opacity: 0.6;
     align-self: flex-end;
-    font-size: 1rem;
-    @include mobile { align-self: center; margin-bottom: 0; }
+    font-size: base(2);
+
+    @include mobile { 
+      align-self: center;
+      margin-bottom: 0;
+    }
   }
 
   & ~ & {
     margin-top: 0;
   }
-
-  @include mobile {
-    cursor: default;
-    height: 5rem;
-  }
-
 
   &:hover .flasher {
     transform: translateY(0);
@@ -149,13 +142,12 @@ article.swatch {
     position: absolute;
     content: "COPY";
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: base(3);
     text-align: center;
-    padding: 1.2rem;
+    padding: base(3);
     top: 0;
     opacity: 0.8;
     transform: translateY(-100%);
-    pointer-events: none;
 
     @include mobile {
       display: none;
@@ -163,31 +155,111 @@ article.swatch {
   }
 }
 
-article.swatch-text {
-  padding: 1.2rem;
-
-  h5, p {
-    margin: 0;
-  }
+.color .swatch-text {
+  padding: base(2);
 
   h5 {
-    font-size: 1.1rem;
+    font-size: base(3);
     font-weight: 500;
-  }
-
-  p {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-top: 0.2rem;
+    margin: 0;
 
     @include mobile {
-      font-size: 1rem;
+      font-size: base(2);
     }
   }
 }
 
 main + header {
-  margin-top: 4.8rem;
+  margin-top: base(12);
+}
+
+section.p-collapse {
+  padding-top: $base;
+  padding-bottom: $base;
+}
+
+article.p-collapse {
+  border-top: 1px solid colors(gray, light);
+
+  .p-collapse-title {
+    transition: 0.3s;
+
+    &.expanded {
+      color: colors(primary);
+    }
+  }
+}
+
+.p-modal-container, .p-popup-container {
+  padding: base(6);
+  background-color: colors(background, light);
+}
+
+.documentation.p-collapse {
+  border-top: none;
+}
+
+header.docs {
+  color: colors(gray, dark);
+  height: 32vh;
+  max-height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .title {
+    text-align: left;
+  }
+
+  h1 {
+    font-size: base(9);
+    line-height: base(9);
+    letter-spacing: -0.05rem;
+  }
+
+  h4 {
+    color: colors(gray);
+    font-size: base(3);
+    line-height: base(4);
+    margin-left: base(9) + base(4) + 0.2rem;
+    margin-top: base(2);
+  }
+}
+
+.logo {
+  display: flex;
+}
+
+.demo-icon {
+  height: base(9);
+  margin-top: base();
+  margin-right: base(4);
+
+  .from-color, .to-color {
+    stop-color: colors(success);
+  }
+
+  .center-color {
+    fill: colors(success);
+  }
+}
+
+.title {
+  font-family: "Source Serif Pro";
+  font-weight: 400;
+  font-size: base(6);
+  line-height: base(6);
+  margin: 0;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: base(3);
+  line-height: base(4);
+  margin-bottom: 0;
+  margin-top: base(4);
 }
 
 section.collapse {
@@ -214,75 +286,6 @@ article.collapse {
 
 .documentation.collapse {
   border-top: none;
-}
-
-header.docs {
-  color: colors(gray, dark);
-  height: 32vh;
-  max-height: 400px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  .title {
-    text-align: left;
-  }
-
-  .bar {
-    color: colors(gray, light);
-    font-weight: 300;
-  }
-
-  h1 {
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 36px;
-    letter-spacing: -0.05rem;
-  }
-
-  h4 {
-    color: colors(gray);
-    font-size: 14px;
-    line-height: 14px;
-    margin-left: 56px;
-    margin-top: 12px;
-  }
-}
-
-.logo {
-  display: flex;
-}
-
-.demo-icon {
-  height: 36px;
-  margin-top: 3px;
-  margin-right: 18px;
-
-  .from-color, .to-color {
-    stop-color: colors(success);
-  }
-
-  .center-color {
-    fill: colors(success);
-  }
-}
-
-.title {
-  font-family: "Source Serif Pro";
-  font-weight: 600;
-  font-size: 2.4rem;
-  line-height: 2.4rem;
-  margin: 0;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 1.4rem;
-  line-height: 1.4rem;
-  margin-bottom: 0;
-  margin-top: 1rem;
 }
 
 @import "code-blocks";

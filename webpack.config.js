@@ -21,7 +21,11 @@ module.exports = {
           }
         }
       },
-      { test: /\.css$/, loader: 'vue-style-loader!css-loader' },
+      {
+        test: /\.scss$/,
+        loader: 'vue-style-loader!css-loader!postcss-loader!sass-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -33,7 +37,7 @@ module.exports = {
     extensions: ['.vue', '.js'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'propellant': path.join(__dirname, './')
+      'prpllnt': path.join(__dirname, './')
     }
   },
   devServer: {
@@ -58,6 +62,7 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: false,
       comments: false,

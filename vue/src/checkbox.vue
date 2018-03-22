@@ -1,9 +1,9 @@
 <template>
-  <div class="input-group">
-    <label :class="{ 'focus': focused, 'disabled': disabled }" class="checkbox">
+  <div class="p-input-group has-checkbox">
+    <label :class="{ 'focus': focused, 'disabled': disabled }" class="p-checkbox">
       <input :disabled="disabled" @focus="focused = true" @focusout="focused = false" type="checkbox" v-model="innerModel" @change="onChange">
         {{ label }}
-      <span class="lever"></span>
+      <span class="p-check-lever"></span>
     </label>
   </div>
 </template>
@@ -19,10 +19,18 @@ export default {
       type: String,
       default: '',
       note: "a label to be appended after the checkbox"
+    },
+    indeterminate: {
+      type: Boolean,
+      default: false,
+      note: "whether the checkbox should initially be indeterminate"
     }
   },
-  data() {
-    return { modelType: 'checked' }
+  mounted() {
+    if (this.indeterminate) this.$el.querySelector('input').indeterminate = true
+  },
+  methods: {
+    stateFromEvent(e) { return e.target.checked }
   }
 }
 </script>

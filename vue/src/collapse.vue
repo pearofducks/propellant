@@ -1,14 +1,14 @@
 <template>
-  <article class="collapse">
-    <div class="collapse-title" @click="!hasPromptSlots && toggle()" :class="{ expanded: isExpanded, clickable: !hasPromptSlots }">
+  <article class="p-collapse">
+    <div class="p-collapse-title" @click="!hasPromptSlots && toggle()" :class="{ expanded: isExpanded, clickable: !hasPromptSlots }">
       <slot name="title"></slot>
     </div>
-    <div class="collapse-showmore clickable" v-if="hasPromptSlots" @click="toggle()">
+    <div class="p-collapse-showmore p-clickable" v-if="hasPromptSlots" @click="toggle()">
       <slot v-if="isExpanded" name="showless"></slot>
       <slot v-else name="showmore"></slot>
     </div>
     <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false">
-      <div class="collapse-content" v-if="isExpanded">
+      <div class="p-collapse-content" v-show="isExpanded">
         <slot name="content"></slot>
       </div>
     </transition>

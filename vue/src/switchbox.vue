@@ -1,9 +1,9 @@
 <template>
-  <div class="input-group">
-    <label :class="{ 'focus': focused, 'disabled': disabled }" class="switch">
+  <div class="p-input-group has-switchbox">
+    <label :class="{ 'focus': focused, 'disabled': disabled }" class="p-switchbox">
       <input :disabled="disabled" @focus="focused = true" @focusout="focused = false" type="checkbox" v-model="innerModel" @change="onChange">
         {{ leftLabel }}
-      <span class="lever"></span>
+      <span class="p-switch-lever"></span>
         {{ rightLabel }}
     </label>
   </div>
@@ -22,10 +22,10 @@ export default {
       note: "an array of labels in the form: [left-label, right-label]"
     }
   },
-  data() {
-    return { modelType: 'checked' }
+  methods: {
+    stateFromEvent(e) { return e.target.checked }
   },
-  computed: { 
+  computed: {
     leftLabel() { return this.labels[0] ? this.labels[0] : "" },
     rightLabel() { return this.labels[1] ? this.labels[1] : "" }
   }

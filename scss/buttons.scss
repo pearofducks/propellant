@@ -1,8 +1,7 @@
-.button {
-  @include is-control;
+.p-button {
+  @include p-controls;
 
-  padding: 0.5rem 1.5rem;
-  margin: 0.3rem;
+  padding: base(2) base(4);
   background: colors(light);
   border-width: 0;
   box-shadow: 1px 1px 1px $border-color;
@@ -14,6 +13,10 @@
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+
+  & ~ & {
+    margin-left: base();
+  }
 
   &:focus, &:hover {
     color: colors(gray, dark);
@@ -32,7 +35,14 @@
     pointer-events: none;
   }
 
-  &.button-primary {
+  @each $name in $ui-colors {
+    &.is-#{$name} {
+      background-color: colors($name);
+      color: colors(light);
+    }
+  }
+
+  &.is-primary {
     background: colors(primary);
     color: colors(light);
 
@@ -46,7 +56,7 @@
       color: colors(light);
     }
 
-    &.loading {
+    &.is-loading {
       &::after {
         border-bottom-color: colors(light);
         border-left-color: colors(light);
@@ -54,7 +64,7 @@
     }
   }
 
-  &.button-link {
+  &.is-link {
     background: transparent;
     border-color: transparent;
     box-shadow: none;
@@ -70,7 +80,8 @@
   }
 }
 
-.button-null {
+// this is likely to go away in the future
+.p-has-no-style {
   appearance: none;
   background: transparent;
   border-color: transparent;

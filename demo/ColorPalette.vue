@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <section class="palette labelled" data-type="colors">
-      <color v-for="(color, index) in palettes" v-once :color="color" :key="index"></color>
-    </section>
-  </div>
+  <section class="palette labelled" data-type="colors">
+    <color v-for="(color, index) in palettes" v-once :color="color" :key="index"></color>
+  </section>
 </template>
 
 <script>

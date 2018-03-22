@@ -4,16 +4,17 @@
 
 // Sizes
 
-$html-font-size: 62.5%;
-$html-line-height: 1.42857;
-$font-size: 1.4rem;
+$html-font-size: 62.5% !default;
+$html-line-height: 1.42857 !default;
+$base: 0.4rem !default;
+$font-size: $base * 4 !default;
 
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !default;
 
-$layout-padding: 1.4rem;
-$input-min-width: 18rem;
-$border-radius: 0.3rem;
-$border-width: 0.1rem;
+$layout-padding: $base * 3 !default;
+$input-min-width: $base * 40 !default;
+$border-radius: 0.2rem !default;
+$border-width: 0.1rem !default;
 
 // Colors
 
@@ -55,3 +56,7 @@ $code-color: colors(danger);
 $body-font-color: colors(gray, dark);
 
 $ui-colors: primary success warning danger;
+
+@function base($multiple: 1) {
+  @return $base * $multiple;
+}
